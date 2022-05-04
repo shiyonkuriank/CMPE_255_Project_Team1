@@ -71,6 +71,7 @@ Given the task of recommending movies to the users, below are the methods we use
 ### Method 1: KNN collaborative filtering algorithm
 KNN collaborative filtering algorithm, is a combination of both collaborative filtering algorithm and KNN algorithm.<br >
 The KNN algorithm is used to select the neighbors. We find k movies which are similar in distance with the input movie by the user. <br >
+<br >
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knn.png)
 
 ###### COSINE COMPUTING
