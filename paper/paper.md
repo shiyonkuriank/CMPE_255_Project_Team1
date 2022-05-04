@@ -3,6 +3,7 @@ In this hustling world, entertainment is a necessity for each one of us to refre
 What is a recommender system?<br>
 A recommender system is a filtration program whose aim is to provide the most relevant information to a user by discovering patterns in a dataset. The algorithm rates the items and shows the user the items that they would rate highly. An example of recommendation in action is when you visit amazon and you notice that some items are being recommended to you or when Netflix recommends certain movies to you.  The domain-specific item is a movie; therefore, the main focus of our recommendation system is to filter and predict only those movies which a user would prefer given some data about the user him or herself. 
 Different filtration strategies: <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/filtration_strategies.png)
 
 ###### 1. Content-based Filtering: <br>
 This filtration strategy is based on the data provided about the items. The algorithm recommends products that are similar to the ones that a user has liked in the past. This similarity (generally cosine similarity) is computed from the data we have about the items as well as the user’s past preferences. For example, if a user likes movies such as ‘The Prestige’ then we can recommend him the movies of ‘Christian Bale’ or movies with the genre ‘Thriller’ or maybe even movies directed by ‘Christopher Nolan’.  So, what happens here the recommendation system checks the past preferences of the user and find the film “The Prestige”, then tries to find similar movies to that using the information available in the database such as the lead actors, the director, genre of the film, production house, etc. and based on this information find movies similar to “The Prestige”.
@@ -18,7 +19,7 @@ The concept in this case is to find similar movies instead of similar users and 
 Here, for example, we take 2 movies ‘A’ and ‘B’ and check their ratings by all users who have rated both the movies and based on the similarity of these ratings, and based on this rating similarity by users who have rated both we find similar movies. So, if most common users have rated ‘A’ and ‘B’ both similarly and it is highly probable that ‘A’ and ‘B’ are similar, therefore if someone has watched and liked ‘A’ they should be recommended ‘B’ and vice versa.
 •	Other algorithms: There are other approaches like market basket analysis, which works by looking for combinations of items that occur together frequently in transactions. 
 ###### 3. Hybrid Recommendation System <br>
-![hybrid](https://user-images.githubusercontent.com/71619460/166626503-964e642c-ef0c-43bf-b733-7a15d8ae930a.png)
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/hybrid.png)
 
 Recent research has demonstrated that a hybrid approach, combining collaborative filtering and content-based filtering could be more effective in some cases. Hybrid approaches can be implemented in several ways, by making content-based and collaborative-based predictions separately and then combining them, by adding content-based capabilities to a collaborative-based approach (and vice versa), or by unifying the approaches into one model.
 Netflix is a good example of the use of hybrid recommender systems. The website makes recommendations by comparing the watching and searching habits of similar users (i.e. collaborative filtering) as well as by offering movies that share characteristics with films that a user has rated highly (content-based filtering). <br>
@@ -26,24 +27,36 @@ Netflix is a good example of the use of hybrid recommender systems. The website 
 We used the movies dataset from data.world website. It contains title, cast and crew, genres, revenue, number of votes and average rating for a particular movie. <br >
 We dropped those movies which have missing values in genre because it is difficult impute a value for it. <br >
 Below is the revenue distribution plot <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/revenue.png)
 
 We can see from the plot there are a lot of 0 values for revenue. So, impute revenue with median revenue of the movies released in that particular year. <br >
+
 We performed one hot encoding on genre, director and cast columns as they are comma separated and it is difficult to use it. <br >
+
 Below is the plot and word  cloud for the popular genres <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/genre_plot_1.png)
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/genre_plot_2.png)
 
 The below plot shows the directors with highest number of movies directed. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/director_high_movies.png)
 
 This is the plot between vote count and movie. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/vote_count.png)
 
 Below is the plot between number of movies released per year. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/years_movies_released.png)
 
 The table shows the top 10 movies based on number of votes. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/top_ten_vote.png)
 
 The table below shows the top 10 highest rated movies. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/top_ten_rating.png)
 
 The plot below shows how the vote count changes over the decades. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/vote_count_decade.png)
 
 The below plot shows the highest average rating of directors who directed at least 5 movies. <br >
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/average_rating_director.png)
 
 ###### Analysis: <br >
 1.	Drama is the most popular genre followed by comedy and thriller.
