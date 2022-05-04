@@ -83,6 +83,7 @@ We calculate cosine similarity of genres, director, cast between the input movie
 ###### KNN NEAREST NEIGHBOR SELECTION
 After the calculation of similarity as Similarity(movieA, movieB) between movies, then the algorithm selects a number movies that are nearest to the input movie. <br > 
 Select just the most K high similitude as neighbors. As shown in figure below. <br >
+<br >
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knn_2.png)
 
 We are also predicting the rating of the input movie by computing the average rating of its k neighbor movies.
