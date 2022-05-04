@@ -75,7 +75,7 @@ The KNN algorithm is used to select the neighbors. We find k movies which are si
 
 ###### COSINE COMPUTING
 The method computes the closeness between two users by figuring the cosine of the point between the two vectors <br >
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/cosine.png)
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/cosine_distance.png)
 
 where Ai and Bi are parts of vector A and B respectively.  <br >
 The subsequent closeness ranges from −1 meaning precisely inverse, to 1 meaning precisely the equivalent, with 0 demonstrating symmetry or decorrelation, while in the middle of qualities show halfway similarity or uniqueness. For content coordinating, the characteristic vectors An and B are generally the term recurrence vectors of the reports. Cosine closeness can be viewed as a technique for normalizing document length during comparison. <br >
@@ -121,6 +121,49 @@ Load the data using pandas
 Select the necessary features that need to be analyzed for forming the cluster.
 In this step, we use the inbuilt feature kMeans and perform the clustering analysis. The clustered data is the form of an array.
 With the help of the matplotlib library in python, the clusters are visualized as scatter plots with all the necessary features.
+
+
+### APRIORI ALGORITHM
+
+###### INTRODUCTION
+Apriori Algorithm is used for mining frequent item sets and devising association rules from transactional database. The parameters “support” and “confidence” are used for the evaluation. The term “Support” refers to item’s frequency of occurrence and the term “Confidence” means a conditional probability.
+Items in a transaction form a item set. The algorithm begins by identifying frequent, individual items(items which have a frequency greater than or equal to the given support) in the database and continues to extend them to larger, frequent item sets.
+
+
+###### GOAL
+-The goal is to find combinations of products that are often bought together, which we call frequent item sets. It is also known as “Frequent Items Mining”. 
+Another objective is to create association rule between different objects. The association rule describes how two or more objects are related to each other. Apriori algorithm is also know as “Frequent Pattern Mining”
+
+
+###### PRINCIPLE
+-   How can we find frequent item sets ?
+How can we find frequent item sets in a dataset effectively ?
+
+
+###### STEPS INVOLVED
+Step-1
+Data Preprocessing
+First we need to import the necessary libraries and transform the data into a suitable format for training the Apriori Model. For that we need to install an apyori package containing all the priori model algorithms.
+
+Step-2
+Importing the dataset
+We need to load the ‘Movies.cs’ file so that we can start working on the dataset.
+
+Step-3
+Transforming our Pandas dataset into a list dataset
+Since we are working with the Apriori Algorithm which takes list as input we need to transform our pandas data frame into a list format. To create this list, we first start with an empty list and then populate it with different transactions in our pandas data frame.
+We use a for loop to iterate through it.
+
+Step-4
+Training the Apriori Model
+By using different values for min_support, min_lift, min_confidence and min_length we design association_rules. We implement them on the model and thus obtain Association_results.
+
+Step-5
+Visualizing the Results
+
+Step-6
+Repeating Step-4 while updating the values of min_confidence. And thus forming different Association rules and thereafter Association Results.
+  
 
 
 
