@@ -25,11 +25,11 @@ Given the task of recommending movies to the users, below are the methods we use
 ### Method 1: KNN collaborative filtering algorithm
 KNN collaborative filtering algorithm, is a combination of both collaborative filtering algorithm and KNN algorithm.<br >
 The KNN algorithm is used to select the neighbors. We find k movies which are similar in distance with the input movie by the user. <br >
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/cosine_distance.png)
+![alt text]
 
 ###### COSINE COMPUTING
 The method computes the closeness between two users by figuring the cosine of the point between the two vectors <br >
-![alt text]
+![alt text](images/cosine_distance.png)
 
 where Ai and Bi are parts of vector A and B respectively.  <br >
 The subsequent closeness ranges from −1 meaning precisely inverse, to 1 meaning precisely the equivalent, with 0 demonstrating symmetry or decorrelation, while in the middle of qualities show halfway similarity or uniqueness. For content coordinating, the characteristic vectors An and B are generally the term recurrence vectors of the reports. Cosine closeness can be viewed as a technique for normalizing document length during comparison. <br >
