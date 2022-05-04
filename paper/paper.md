@@ -1,5 +1,5 @@
 ## Introduction: 
-In this hustling world, entertainment is a necessity for each one of us to refresh our mood and energy. Entertainment regains our confidence for work and we can work more enthusiastically. For revitalizing ourselves, we can listen to our preferred music or can watch movies of our choice. For watching favorable movies online, we can utilize movie recommendation systems, which are more reliable, since searching of preferred movies will require more and more time which one cannot afford to waste. In this paper, to improve the quality of a movie recommendation system, a Hybrid approach by combining content based filtering and collaborative filtering. Hybrid approach helps to get the advantages from both the approaches as well as tries to eliminate the drawbacks of both methods. <br>
+In this hustling world, entertainment is a necessity for each one of us to refresh our mood and energy. Entertainment regains our confidence for work and we can work more enthusiastically. For revitalizing ourselves, we can listen to our preferred music or can watch movies of our choice. For watching favorable movies online, we can utilize movie recommendation systems, which are more reliable, since searching of preferred movies will require more and more time which one cannot afford to waste. In this paper, to improve the quality of a movie recommendation system, a Hybrid approach by combining content based filtering and collaborative filtering. Hybrid approach helps to get the advantages from both the approaches as well as tries to eliminate the drawbacks of both methods.
 What is a recommender system?<br>
 A recommender system is a filtration program whose aim is to provide the most relevant information to a user by discovering patterns in a dataset. The algorithm rates the items and shows the user the items that they would rate highly. An example of recommendation in action is when you visit amazon and you notice that some items are being recommended to you or when Netflix recommends certain movies to you.  The domain-specific item is a movie; therefore, the main focus of our recommendation system is to filter and predict only those movies which a user would prefer given some data about the user him or herself. 
 Different filtration strategies: <br >
@@ -40,7 +40,7 @@ We calculate cosine similarity of genres, director, cast between the input movie
 ###### KNN NEAREST NEIGHBOR SELECTION
 After the calculation of similarity as Similarity(movieA, movieB) between movies, then the algorithm selects a number movies that are nearest to the input movie. <br > 
 Select just the most K high similitude as neighbors. As shown in figure below. <br >
-![alt text]
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knn_2.png)
 
 We are also predicting the rating of the input movie by computing the average rating of its k neighbor movies.
 
