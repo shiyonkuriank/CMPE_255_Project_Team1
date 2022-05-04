@@ -16,20 +16,22 @@ For example, if the user ‘A’ likes ‘Batman Begins’, ‘Justice League’
 The concept in this case is to find similar movies instead of similar users and then recommending similar movies to that ‘A’ has had in his/her past preferences. This is executed by finding every pair of items that were rated/viewed/liked/clicked by the same user, then measuring the similarity of those rated/viewed/liked/clicked across all user who rated/viewed/liked/clicked both, and finally recommending them based on similarity scores.
 Here, for example, we take 2 movies ‘A’ and ‘B’ and check their ratings by all users who have rated both the movies and based on the similarity of these ratings, and based on this rating similarity by users who have rated both we find similar movies. So, if most common users have rated ‘A’ and ‘B’ both similarly and it is highly probable that ‘A’ and ‘B’ are similar, therefore if someone has watched and liked ‘A’ they should be recommended ‘B’ and vice versa.
 •	Other algorithms: There are other approaches like market basket analysis, which works by looking for combinations of items that occur together frequently in transactions. 
-####### 3. Hybrid Recommendation System <br>
+###### 3. Hybrid Recommendation System <br>
 ![hybrid](https://user-images.githubusercontent.com/71619460/166626503-964e642c-ef0c-43bf-b733-7a15d8ae930a.png)
+
 Recent research has demonstrated that a hybrid approach, combining collaborative filtering and content-based filtering could be more effective in some cases. Hybrid approaches can be implemented in several ways, by making content-based and collaborative-based predictions separately and then combining them, by adding content-based capabilities to a collaborative-based approach (and vice versa), or by unifying the approaches into one model.
 Netflix is a good example of the use of hybrid recommender systems. The website makes recommendations by comparing the watching and searching habits of similar users (i.e. collaborative filtering) as well as by offering movies that share characteristics with films that a user has rated highly (content-based filtering).
+
 ## Methods: 
 Given the task of recommending movies to the users, below are the methods we used to tackle the problem. <br >
 ### Method 1: KNN collaborative filtering algorithm
 KNN collaborative filtering algorithm, is a combination of both collaborative filtering algorithm and KNN algorithm.<br >
 The KNN algorithm is used to select the neighbors. We find k movies which are similar in distance with the input movie by the user. <br >
-![alt text]
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/cosine_distance.png)
 
 ###### COSINE COMPUTING
 The method computes the closeness between two users by figuring the cosine of the point between the two vectors <br >
-![alt text](images/cosine_distance.png)
+![alt text]
 
 where Ai and Bi are parts of vector A and B respectively.  <br >
 The subsequent closeness ranges from −1 meaning precisely inverse, to 1 meaning precisely the equivalent, with 0 demonstrating symmetry or decorrelation, while in the middle of qualities show halfway similarity or uniqueness. For content coordinating, the characteristic vectors An and B are generally the term recurrence vectors of the reports. Cosine closeness can be viewed as a technique for normalizing document length during comparison. <br >
