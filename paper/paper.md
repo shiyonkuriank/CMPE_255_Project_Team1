@@ -93,15 +93,15 @@ We are also predicting the rating of the input movie by computing the average ra
 3. The input is the movie entered by the user. Compute the cosine distance between every movie in the dataset and the input movie.
 4. Output top 10 movies which have higher similitude.
 5. Compute the average of the ratings of the selected 10 movies and use that value as the predicted rating for the input movie.
-The below figures shows the movie results for three movies.
-For "Godfather"<br >
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/godfather.png)
+The below figures shows the movie results for three movies.<br >
+   For "Godfather"<br >
+   ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/godfather.png)
 
-For "Finding Nemo" <br >
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/finding_nemo.png)
+   For "Finding Nemo" <br >
+   ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/finding_nemo.png)
 
-For "The Shawshank Redemption"<br >
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/shawshank.png)
+   For "The Shawshank Redemption"<br >
+   ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/shawshank.png)
 
 ###### Advantages:
 1. Since we are recommending movies based on similarity based on genre, director and cast, there are high chances that the user might watch the recommended movies. <br >
