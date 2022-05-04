@@ -44,6 +44,17 @@ Select just the most K high similitude as neighbors. As shown in figure below. <
 
 We are also predicting the rating of the input movie by computing the average rating of its k neighbor movies.
 
+### Method 2: K -Means Clustering on Movie Dataset ###
+
+K means is one of the most popular Unsupervised Machine Learning Algorithms Used for Solving Classification Problems. K Means segregates the unlabeled data into various groups, called clusters, based on having similar features, common patterns. It is an Iterative algorithm that divides a group of n datasets into k subgroups /clusters based on the similarity and their mean distance from the centroid of that particular subgroup/ formed. K, here is the pre-defined number of clusters to be formed by the Algorithm. If K=3, It means the number of clusters to be formed from the dataset is 3. The number of clusters that we choose for the algorithm shouldn’t be random. Each and Every cluster is formed by calculating and comparing the mean distances of each data point within a cluster from its centroid.
+
+Implementation:
+1. Following steps explain how to perform k- Means clustering with python.
+2. Import all the relevant libraries.
+3. Load the data using pandas
+4. Select the necessary features that need to be analyzed for forming the cluster.
+5. In this step, we use the inbuilt feature kMeans and perform the clustering analysis. The clustered data is the form of an array.
+6. With the help of the matplotlib library in python, the clusters are visualized as scatter plots with all the necessary features.
 
 
 
