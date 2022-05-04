@@ -41,20 +41,30 @@ We calculate cosine similarity of genres, director, cast between the input movie
 After the calculation of similarity as Similarity(movieA, movieB) between movies, then the algorithm selects a number movies that are nearest to the input movie. <br > 
 Select just the most K high similitude as neighbors. As shown in figure below. <br >
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knn_2.png)
-
 We are also predicting the rating of the input movie by computing the average rating of its k neighbor movies.
+###### Steps:
+1. Clean the dataset by imputing null values is possible and selecting only those features which are useful.
+   Here we chose, vote_count, average_rating, title, revenue, cast, director, genres.
+2. We chose k = 10 to show top 10 movie suggestions the user might be interested in.
+3. The input is the movie entered by the user. Compute the cosine distance between every movie in the dataset and the input movie.
+4. Output top 10 movies which have higher similitude.
+5. Compute the average of the ratings of the selected 10 movies and use that value as the predicted rating for the input movie.
+The below figures shows the movie results for three movies.
+For "Godfather"
+For "Finding Nemo"
+For "The Shawshank Redemption"
+###### Advantages:
+1. Since we are recommending movies based on similarity based on genre, director and cast, there are high chances that the user might watch the recommended movies. <br >
+2. Easier to recommend movies. <br >
+###### Disadvantages:
+1. This method considers only the movies and their average ratings, genres, cast and crew but do not consider what the particular user liked or disliked.
+    So, it cannot precisely recommend movies based on the preference.
+2. We chose K = 10 arbitrarily to show top 10 movies. But in practice, K should be determined because the value of K affects the outcome.
 
-### Method 2: K -Means Clustering on Movie Dataset ###
 
-K means is one of the most popular Unsupervised Machine Learning Algorithms Used for Solving Classification Problems. K Means segregates the unlabeled data into various groups, called clusters, based on having similar features, common patterns. It is an Iterative algorithm that divides a group of n datasets into k subgroups /clusters based on the similarity and their mean distance from the centroid of that particular subgroup/ formed. K, here is the pre-defined number of clusters to be formed by the Algorithm. If K=3, It means the number of clusters to be formed from the dataset is 3. The number of clusters that we choose for the algorithm shouldn’t be random. Each and Every cluster is formed by calculating and comparing the mean distances of each data point within a cluster from its centroid.
 
-Implementation:
-1. Following steps explain how to perform k- Means clustering with python.
-2. Import all the relevant libraries.
-3. Load the data using pandas
-4. Select the necessary features that need to be analyzed for forming the cluster.
-5. In this step, we use the inbuilt feature kMeans and perform the clustering analysis. The clustered data is the form of an array.
-6. With the help of the matplotlib library in python, the clusters are visualized as scatter plots with all the necessary features.
+
+
 
 
 
