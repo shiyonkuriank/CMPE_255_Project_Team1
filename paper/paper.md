@@ -21,7 +21,37 @@ Here, for example, we take 2 movies ‘A’ and ‘B’ and check their ratings 
 ![hybrid](https://user-images.githubusercontent.com/71619460/166626503-964e642c-ef0c-43bf-b733-7a15d8ae930a.png)
 
 Recent research has demonstrated that a hybrid approach, combining collaborative filtering and content-based filtering could be more effective in some cases. Hybrid approaches can be implemented in several ways, by making content-based and collaborative-based predictions separately and then combining them, by adding content-based capabilities to a collaborative-based approach (and vice versa), or by unifying the approaches into one model.
-Netflix is a good example of the use of hybrid recommender systems. The website makes recommendations by comparing the watching and searching habits of similar users (i.e. collaborative filtering) as well as by offering movies that share characteristics with films that a user has rated highly (content-based filtering).
+Netflix is a good example of the use of hybrid recommender systems. The website makes recommendations by comparing the watching and searching habits of similar users (i.e. collaborative filtering) as well as by offering movies that share characteristics with films that a user has rated highly (content-based filtering). <br>
+
+We used the movies dataset from data.world website. It contains title, cast and crew, genres, revenue, number of votes and average rating for a particular movie. <br >
+We dropped those movies which have missing values in genre because it is difficult impute a value for it. <br >
+Below is the revenue distribution plot <br >
+
+We can see from the plot there are a lot of 0 values for revenue. So, impute revenue with median revenue of the movies released in that particular year. <br >
+We performed one hot encoding on genre, director and cast columns as they are comma separated and it is difficult to use it. <br >
+Below is the plot and word  cloud for the popular genres <br >
+
+The below plot shows the directors with highest number of movies directed. <br >
+
+This is the plot between vote count and movie. <br >
+
+Below is the plot between number of movies released per year. <br >
+
+The table shows the top 10 movies based on number of votes. <br >
+
+The table below shows the top 10 highest rated movies. <br >
+
+The plot below shows how the vote count changes over the decades. <br >
+
+The below plot shows the highest average rating of directors who directed at least 5 movies. <br >
+
+###### Analysis: <br >
+1.	Drama is the most popular genre followed by comedy and thriller.
+2.	Woody Allen is the director who directed the highest number of movies.
+3.	2009 is the year which has the highest number of movies released.
+4.	The vote count increases till 2000s and decreased in the 2010s.
+5.	The highest average ratings of directors is almost 7.0.
+
 
 ## Methods: 
 Given the task of recommending movies to the users, below are the methods we used to tackle the problem. <br >
