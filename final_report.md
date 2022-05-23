@@ -86,12 +86,12 @@ In this filtering, two types of data are used. First, the likes of the user, the
 The recommendations are calculated using cosine similarity.
 
 <br>
-###### Advantages of Content Based Filtering <br>
+###### Advantages of Using Content Based Filtering <br>
 The user gets recommended the types of items they love.
 The user is satisfied by the type of recommendation.
 New items can be recommended; just data for that item is required.
 <br>
-###### Disadvantages of Content Based Filtering <br>
+###### Disadvantages of Using Content Based Filtering <br>
 The user will never be recommended for different items.
 Business cannot be expanded as the user does not try a different type of product.
 If the user matrix or item matrix is changed the cosine similarity matrix needs to be calculated again.
