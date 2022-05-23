@@ -27,6 +27,29 @@ ratings = pd.read_csv(
     'ratings.csv',encoding='latin-1')
 ratings.head()
 
+df = ratings.filter(['rating','movieId'], axis = 1)
+
+df['number_of_ratings'] = df.groupby('movieId')['rating'].count()
+
+import seaborn as sns
+sns.jointplot(x='rating', y='number_of_ratings', data=df, height = 10)
+
+import altair as alt
+
+users_ratings = (
+    ratings
+    .groupby('userId', as_index=False)
+    .agg({'rating': ['count', 'mean']})
+    .flatten_cols()
+    .merge(users, on='userId')
+)
+
+alt.hconcat(
+    filtered_hist('rating count', '# ratings / user', occupation_filter),
+    filtered_hist('rating mean', 'mean user rating', occupation_filter),
+    occupation_chart,
+    data=users_ratings)
+
 data = ratings.merge(movies,on='movieId')
 data.head()
 
