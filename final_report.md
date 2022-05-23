@@ -140,8 +140,9 @@ Let's load this data into Python. I will load the dataset with Pandas onto Dataf
 
 ###### Step- 2 : Data Exploration <br>
 As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.
-![image](images/Step-2.png)
 
+
+![image](images/Step-2.png)
 
 
 ![image](images/Step-2.1.png)
@@ -159,7 +160,7 @@ The most relevant genres are:<br>
 For the post, we will be building a fairly simple recommender, based on the movie genres. A fairly common approach is to use a tf-idf vectorizer. 
 While this approach is more commonly used on a text corpus, it possesses some interesting properties that will be useful in order to obtain a vector representation of the data. The expression is defined as follows:
 
-![image](images/Step-4.png)
+![image](images/Step-4.jpg)
 <br>
 
 Where we have the product of the term frequency, i.e. the amount of times a given term (genre) occurs in a document (genres of a movie), times the right side factor, which basically scales the term frequency depending on the amount of times a given term appears in all documents (movies).
