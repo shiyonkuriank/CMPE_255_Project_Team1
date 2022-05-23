@@ -96,7 +96,7 @@ The user will never be recommended for different items.
 Business cannot be expanded as the user does not try a different type of product.
 If the user matrix or item matrix is changed the cosine similarity matrix needs to be calculated again.
 
-<br>
+
 ![image](images/Content-Based-Filtering.png)
 <br>
 
