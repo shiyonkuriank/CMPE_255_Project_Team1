@@ -34,22 +34,6 @@ df['number_of_ratings'] = df.groupby('movieId')['rating'].count()
 import seaborn as sns
 sns.jointplot(x='rating', y='number_of_ratings', data=df, height = 10)
 
-import altair as alt
-
-users_ratings = (
-    ratings
-    .groupby('userId', as_index=False)
-    .agg({'rating': ['count', 'mean']})
-    .flatten_cols()
-    .merge(users, on='userId')
-)
-
-alt.hconcat(
-    filtered_hist('rating count', '# ratings / user', occupation_filter),
-    filtered_hist('rating mean', 'mean user rating', occupation_filter),
-    occupation_chart,
-    data=users_ratings)
-
 data = ratings.merge(movies,on='movieId')
 data.head()
 
@@ -195,3 +179,18 @@ results = cross_validate(
 results['test_rmse'].mean()
 
 algo.fit(trainsetfull)
+
+from surprise import KNNWithMeans
+my_k = 15
+my_min_k = 5
+my_sim_option = {
+    'name':'pearson', 'user_based':False, 
+    }
+algo = KNNWithMeans(
+    k = my_k, min_k = my_min_k, sim_option = my_sim_option
+    )
+algo.fit(trainset)
+
+from surprise import accuracy
+predictions = algo.test(testset)
+accuracy.rmse(predictions)
