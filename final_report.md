@@ -78,3 +78,110 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 
 ![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
 
+ 
+Content-based filtering
+This filtering is based on the description or some data provided for that product. The system finds the similarity between products based on its context or description. The user’s previous history is taken into account to find similar products the user may like.
+For example, if a user likes movies such as ‘Mission Impossible’ then we can recommend to him the movies of ‘Tom Cruise’ or movies with the genre ‘Action’.
+In this filtering, two types of data are used. First, the likes of the user, the user’s interest, user’s personal information such as age or, sometimes the user’s history too. This data is represented by the user vector. Second, information related to the product’s known as an item vector. The item vector contains the features of all items based on which similarity between them can be calculated.
+The recommendations are calculated using cosine similarity. If ‘A’ is the user vector and ‘B’ is an item vector then cosine similarity is given by
+
+ 
+Advantages
+The user gets recommended the types of items they love.
+The user is satisfied by the type of recommendation.
+New items can be recommended; just data for that item is required.
+Disadvantages
+The user will never be recommended for different items.
+Business cannot be expanded as the user does not try a different type of product.
+If the user matrix or item matrix is changed the cosine similarity matrix needs to be calculated again.
+ 
+
+
+
+
+
+Introduction: TF-IDF
+
+Let’s consider the need to apply our model on the movies Recommendation.
+
+TF-IDF stands for “Term Frequency — Inverse Document Frequency”. This is a technique to quantify words in a set of documents. We generally compute a score for each word to signify its importance in the document and corpus. This method is a widely used technique in Information Retrieval and Text Mining.
+If I give you a sentence for example “This building is so tall”. It's easy for us to understand the sentence as we know the semantics of the words and the sentence. But how can any program (eg: python) interpret this sentence? It is easier for any programming language to understand textual data in the form of numerical value. So, for this reason, we need to vectorize all of the text so that it is better represented.
+By vectorizing the documents we can further perform multiple tasks such as finding the relevant documents, ranking, clustering, etc. This exact technique is used when you perform a google search (now they are updated to newer transformer techniques). The web pages are called documents and the search text with which you search is called a query. The search engine maintains a fixed representation of all the documents. When you search with a query, the search engine will find the relevance of the query with all of the documents, ranks them in the order of relevance and shows you the top k documents. All of this process is done using the vectorized form of query and documents.
+Now coming back to our TF-IDF,
+TF-IDF = Term Frequency (TF) * Inverse Document Frequency (IDF)
+Terminology
+t — term (word)
+d — document (set of words)
+N — count of corpus
+corpus — the total document set
+
+Content based method similarity calculation
+
+
+Advantages of using TF-IDF
+The biggest advantages of TF-IDF come from how simple and easy to use it is. It is simple to calculate, it is computationally cheap, and it is a simple starting point for similarity calculations (via TF-IDF vectorization + cosine similarity).
+Disadvantages of using TF-IDF
+1.)Something to be aware of is that TF-IDF cannot help carry semantic meaning. It considers the importance of the words due to how it weighs them, but it cannot necessarily derive the contexts of the words and understand importance that way.
+2.)Also as mentioned above, like BoW, TF-IDF ignores word order and thus compound nouns like “Queen of England” will not be considered as a “single unit”. This also extends to situations like negation with “not pay the bill” vs “pay the bill”, where the order makes a big difference. In both cases using NER tools and underscores, “queen_of_england” or “not_pay” are ways to handle treating the phrase as a single unit.
+.
+
+
+Let’s implement this on our problem statement-
+
+
+ 
+ 
+ 
+Step -1
+Data Preparation
+Let's load this data into Python. I will load the dataset with Pandas onto Dataframes ratings, users, and movies. Before that, I'll also pass in column names for each CSV and read them using pandas (the column names are available in the Readme file).
+
+Step-2
+Data Exploration
+As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.
+
+
+Step- 3.1
+Genres
+As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.
+Which are the most popular genres?
+This will be a relevant aspect to take into account when building the content based recommender. We want to understand which genres really are relevant when it comes to defining a user's taste. A reasonable assumption is that it is precisely the unpopular genres, that will be more relevant in characterising the user's taste.
+The most relevant genres are:
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+Step -4
+Building a content based recommender
+For the post, we will be building a fairly simple recommender, based on the movie genres. A fairly common approach is to use a tf-idf vectorizer. 
+While this approach is more commonly used on a text corpus, it possesses some interesting properties that will be useful in order to obtain a vector representation of the data. The expression is defined as follows:
+
+Where we have the product of the term frequency, i.e. the amount of times a given term (genre) occurs in a document (genres of a movie), times the right side factor, which basically scales the term frequency depending on the amount of times a given term appears in all documents (movies).
+The lesser the amount of movies that contain a given genre (df_i), the higher the resulting weight. The logarithm is basically to smoothen the result of the division, i.e. avoids huge differences as a result of the right hand term.
+So why is this useful in our case?
+As already mentioned, tf-idf will help capture the important genres of each movie by giving a higher weight to the less frequent genres, which we wouldn't get with say, CountVectorizer .
+tf-idf
+To obtain the tf-idf vectors I'll be using sklearn's TfidfVectorizer . However, we have to take into account some aspects particular to this problem. The usual setup when dealing with text data, is to set a word analyzer and perhaps an ngram_range , which will also include the n-grams within the specified range. An example would be:
+
+ 
+Step-5
+Similarity between vectors
+The next step will be to find similar vectors (movies). Recall that we've encoded each movie's genre into its tf-idf representation, now we want to define a proximity measure. A commonly used measure is the cosine similarity. 
+This similarity measure owns its name to the fact that it equals to the cosine of the angle between the two vectors being compared. The lower the angle between two vectors, the higher the cosine will be, hence yielding a higher similarity factor. It is expressed as follows (source):
+
+Where, since the inner product can be expressed as the product of the magnitudes times the cosing of the angle between the two vectors, it becomes clear that the above can be expressed as the cosine source:
+
+So here we'll be obtaining the cosine by taking the inner product between both vectors, and normalising by their respective magnitudes. 
+To compute the cosine similarities between all tf-idf vectors, we can again use scikit-learn. sklearn.metrics.pairwise contains many pairwise distance metrics, among them cosine_similarity, which will compute the cosine similarities between all the input rows, in this case tf-idf vectors:
+
+ 
+Step-6
+Testing the Recommender
+
+ 
+
+
