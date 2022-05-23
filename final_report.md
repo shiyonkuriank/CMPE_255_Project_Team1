@@ -58,9 +58,11 @@ The subsequent closeness ranges from −1 meaning precisely inverse, to 1 meanin
 We calculate cosine similarity between the input movie and the other movies.
 KNN NEAREST NEIGHBOR SELECTION
 After the calculation of similarity as Similarity between movies, then the algorithm selects a number of movies that are nearest to the input movie. Here, the KNN model selects 10 movies that are similar to the input movie. Select just the 10  high similitudes as neighbors. As shown in figure below.
+
 ![image](https://user-images.githubusercontent.com/90216358/169904265-c2e7b9c9-3066-4856-b0f2-3463fb783534.png)
 
 To test the model, we gave a sample input of  'Toy story' to see if our model gives 10 recommendations. The figure below shows the output of our implementation.
+
 ![image](https://user-images.githubusercontent.com/90216358/169904362-16ffce39-bb12-4547-bcee-2c4f17d16b7d.png)
 
 Thus our KNN model successfully recommended 10 movies that were similar to the input movie.
@@ -69,8 +71,10 @@ RMSE SCORE
 The root mean squared error, or RMSE, is the most used statistic for measuring the performance of a prediction model. The primary concept is to compare the model's predictions to actual observed data to see how bad/wrong they are. As a result, a high RMSE is "bad," whereas a low RMSE is "excellent."
 Surprise is a Python scikit for creating and evaluating recommender systems using explicit rating data. It provides tools for evaluating, analyzing, and comparing the performance of algorithms. The surprise package has many builtin methods. One Of that is RMSE. For the movie recommendation system that we have built, we are calculating the RMSE score to see the effectiveness of the model.
 We import, Reader, Dataset and cross_validate functions to perform this. We split the dataset into train and test data. Since we have used the KNN model, we need to import the KNNBasic and compute the RMSE. The RMSE score for KNN Model is shown in the figure below.
+
 ![image](https://user-images.githubusercontent.com/90216358/169904459-d8cc837a-5104-4a43-baf3-b92894a461ec.png)
 
 KNNWithMeans is a basic collaborative filtering algorithm that considers each user's mean ratings. The RMSE score for KNN Model is shown in the figure below.
+
 ![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
 
