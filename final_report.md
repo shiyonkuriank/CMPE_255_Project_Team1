@@ -79,34 +79,29 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 ![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
 
  
-##2. Content-based filtering
+###### 2. Content Based Filtering <br>
 This filtering is based on the description or some data provided for that product. The system finds the similarity between products based on its context or description. The user’s previous history is taken into account to find similar products the user may like.
-For example, if a user likes movies such as ‘Mission Impossible’ then we can recommend to him the movies of ‘Tom Cruise’ or movies with the genre ‘Action’.
-In this filtering, two types of data are used. First, the likes of the user, the user’s interest, user’s personal information such as age or, sometimes the user’s history too. This data is represented by the user vector. Second, information related to the product’s known as an item vector. The item vector contains the features of all items based on which similarity between them can be calculated.
-The recommendations are calculated using cosine similarity. If ‘A’ is the user vector and ‘B’ is an item vector then cosine similarity is given by
+For example, if a user likes movies such as ‘Mission Impossible’ then we can recommend to him the movies of ‘Tom Cruise’ or movies with the genre ‘Action’.<br>
+In this filtering, two types of data are used. First, the likes of the user, the user’s interest, user’s personal information such as age or, sometimes the user’s history too. This data is represented by the user vector. Second, information related to the product’s known as an item vector. The item vector contains the features of all items based on which similarity between them can be calculated.<br>
+The recommendations are calculated using cosine similarity.
 
- 
-Advantages
+<br>
+###### Advantages of Content Based Filtering <br>
 The user gets recommended the types of items they love.
 The user is satisfied by the type of recommendation.
 New items can be recommended; just data for that item is required.
-Disadvantages
+<br>
+###### Disadvantages of Content Based Filtering <br>
 The user will never be recommended for different items.
 Business cannot be expanded as the user does not try a different type of product.
 If the user matrix or item matrix is changed the cosine similarity matrix needs to be calculated again.
- 
+<br> 
+<br>
+###### Introduction to TF-IDF <br>
+TF-IDF stands for “Term Frequency — Inverse Document Frequency”. This is a technique to quantify words in a set of documents. We generally compute a score for each word to signify its importance in the document and corpus. This method is a widely used technique in Information Retrieval and Text Mining.<br>
+If I give you a sentence for example “This building is so tall”. It's easy for us to understand the sentence as we know the semantics of the words and the sentence. But how can any program (eg: python) interpret this sentence? It is easier for any programming language to understand textual data in the form of numerical value. So, for this reason, we need to vectorize all of the text so that it is better represented.<br>
+By vectorizing the documents we can further perform multiple tasks such as finding the relevant documents, ranking, clustering, etc. This exact technique is used when you perform a google search (now they are updated to newer transformer techniques). The web pages are called documents and the search text with which you search is called a query. The search engine maintains a fixed representation of all the documents. When you search with a query, the search engine will find the relevance of the query with all of the documents, ranks them in the order of relevance and shows you the top k documents. All of this process is done using the vectorized form of query and documents.<br>
 
-
-
-
-
-Introduction: TF-IDF
-
-Let’s consider the need to apply our model on the movies Recommendation.
-
-TF-IDF stands for “Term Frequency — Inverse Document Frequency”. This is a technique to quantify words in a set of documents. We generally compute a score for each word to signify its importance in the document and corpus. This method is a widely used technique in Information Retrieval and Text Mining.
-If I give you a sentence for example “This building is so tall”. It's easy for us to understand the sentence as we know the semantics of the words and the sentence. But how can any program (eg: python) interpret this sentence? It is easier for any programming language to understand textual data in the form of numerical value. So, for this reason, we need to vectorize all of the text so that it is better represented.
-By vectorizing the documents we can further perform multiple tasks such as finding the relevant documents, ranking, clustering, etc. This exact technique is used when you perform a google search (now they are updated to newer transformer techniques). The web pages are called documents and the search text with which you search is called a query. The search engine maintains a fixed representation of all the documents. When you search with a query, the search engine will find the relevance of the query with all of the documents, ranks them in the order of relevance and shows you the top k documents. All of this process is done using the vectorized form of query and documents.
 Now coming back to our TF-IDF,
 TF-IDF = Term Frequency (TF) * Inverse Document Frequency (IDF)
 Terminology
@@ -114,24 +109,21 @@ t — term (word)
 d — document (set of words)
 N — count of corpus
 corpus — the total document set
+<br>
 
 Content based method similarity calculation
 
 
-Advantages of using TF-IDF
+###### Advantages of Using TF-IDF <br>
 The biggest advantages of TF-IDF come from how simple and easy to use it is. It is simple to calculate, it is computationally cheap, and it is a simple starting point for similarity calculations (via TF-IDF vectorization + cosine similarity).
-Disadvantages of using TF-IDF
-1.)Something to be aware of is that TF-IDF cannot help carry semantic meaning. It considers the importance of the words due to how it weighs them, but it cannot necessarily derive the contexts of the words and understand importance that way.
-2.)Also as mentioned above, like BoW, TF-IDF ignores word order and thus compound nouns like “Queen of England” will not be considered as a “single unit”. This also extends to situations like negation with “not pay the bill” vs “pay the bill”, where the order makes a big difference. In both cases using NER tools and underscores, “queen_of_england” or “not_pay” are ways to handle treating the phrase as a single unit.
-.
+<br>
 
+###### Disadvantages of Using TF-IDF <br>
+1.)Something to be aware of is that TF-IDF cannot help carry semantic meaning. It considers the importance of the words due to how it weighs them, but it cannot necessarily derive the contexts of the words and understand importance that way.<br>
+2.)Also as mentioned above, like BoW, TF-IDF ignores word order and thus compound nouns like “Queen of England” will not be considered as a “single unit”. This also extends to situations like negation with “not pay the bill” vs “pay the bill”, where the order makes a big difference. In both cases using NER tools and underscores, “queen_of_england” or “not_pay” are ways to handle treating the phrase as a single unit.<br>
 
 Let’s implement this on our problem statement-
-
-
- 
- 
- 
+<br> 
 Step -1
 Data Preparation
 Let's load this data into Python. I will load the dataset with Pandas onto Dataframes ratings, users, and movies. Before that, I'll also pass in column names for each CSV and read them using pandas (the column names are available in the Readme file).
