@@ -85,18 +85,18 @@ For example, if a user likes movies such as ‘Mission Impossible’ then we can
 In this filtering, two types of data are used. First, the likes of the user, the user’s interest, user’s personal information such as age or, sometimes the user’s history too. This data is represented by the user vector. Second, information related to the product’s known as an item vector. The item vector contains the features of all items based on which similarity between them can be calculated.<br>
 The recommendations are calculated using cosine similarity.
 
-<br>
 ###### Advantages of Using Content Based Filtering <br>
 The user gets recommended the types of items they love.
 The user is satisfied by the type of recommendation.
 New items can be recommended; just data for that item is required.
-<br>
+
+
 ###### Disadvantages of Using Content Based Filtering <br>
 The user will never be recommended for different items.
 Business cannot be expanded as the user does not try a different type of product.
 If the user matrix or item matrix is changed the cosine similarity matrix needs to be calculated again.
-<br> 
-<br>
+
+
 ###### Introduction to TF-IDF <br>
 TF-IDF stands for “Term Frequency — Inverse Document Frequency”. This is a technique to quantify words in a set of documents. We generally compute a score for each word to signify its importance in the document and corpus. This method is a widely used technique in Information Retrieval and Text Mining.<br>
 If I give you a sentence for example “This building is so tall”. It's easy for us to understand the sentence as we know the semantics of the words and the sentence. But how can any program (eg: python) interpret this sentence? It is easier for any programming language to understand textual data in the form of numerical value. So, for this reason, we need to vectorize all of the text so that it is better represented.<br>
