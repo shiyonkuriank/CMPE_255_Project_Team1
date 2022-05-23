@@ -114,7 +114,7 @@ corpus — the total document set
 Content based method similarity calculation
 
 
-###### Advantages of Using TF-IDF <br>
+######Advantages of Using TF-IDF <br>
 The biggest advantages of TF-IDF come from how simple and easy to use it is. It is simple to calculate, it is computationally cheap, and it is a simple starting point for similarity calculations (via TF-IDF vectorization + cosine similarity).
 <br>
 
