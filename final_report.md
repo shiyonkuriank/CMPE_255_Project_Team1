@@ -114,6 +114,8 @@ N — count of corpus
 corpus — the total document set
 <br>
 
+![image](images/Similarity-Calculation.png)
+<br>
 Content based method similarity calculation
 
 
@@ -126,23 +128,37 @@ The biggest advantages of TF-IDF come from how simple and easy to use it is. It 
 2.)Also as mentioned above, like BoW, TF-IDF ignores word order and thus compound nouns like “Queen of England” will not be considered as a “single unit”. This also extends to situations like negation with “not pay the bill” vs “pay the bill”, where the order makes a big difference. In both cases using NER tools and underscores, “queen_of_england” or “not_pay” are ways to handle treating the phrase as a single unit.<br>
 
 Let’s implement this on our problem statement-
-<br> 
+![image](images/Movie-Recommendation.png)
+<br>
+
 
 ###### Step- 1 : Data Preparation <br>
 Let's load this data into Python. I will load the dataset with Pandas onto Dataframes ratings, users, and movies. Before that, I'll also pass in column names for each CSV and read them using pandas (the column names are available in the Readme file).
+![image](images/Step-1.png)
+<br>
 
 ###### Step- 2 : Data Exploration <br>
 As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.
+![image](images/Step-2.png)
+<br>
+
+![image](images/Step-2.1.png)
+<br>
 
 ###### Step- 3 : Data Insights: 'Genres' <br>
 As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.<br>
 Which are the most popular genres?
 This will be a relevant aspect to take into account when building the content based recommender. We want to understand which genres really are relevant when it comes to defining a user's taste. A reasonable assumption is that it is precisely the unpopular genres, that will be more relevant in characterising the user's taste.
 The most relevant genres are:<br>
+![image](images/Step-3.png)
+<br>
 
 ###### Step- 4 : Building a Content Based Recommender <br>
 For the post, we will be building a fairly simple recommender, based on the movie genres. A fairly common approach is to use a tf-idf vectorizer. 
 While this approach is more commonly used on a text corpus, it possesses some interesting properties that will be useful in order to obtain a vector representation of the data. The expression is defined as follows:
+
+![image](images/Step-4.png)
+<br>
 
 Where we have the product of the term frequency, i.e. the amount of times a given term (genre) occurs in a document (genres of a movie), times the right side factor, which basically scales the term frequency depending on the amount of times a given term appears in all documents (movies).
 The lesser the amount of movies that contain a given genre (df_i), the higher the resulting weight. The logarithm is basically to smoothen the result of the division, i.e. avoids huge differences as a result of the right hand term.
@@ -154,14 +170,19 @@ To obtain the tf-idf vectors I'll be using sklearn's TfidfVectorizer . However, 
 ###### Step- 5 : Similarity between Vectors <br>
 The next step will be to find similar vectors (movies). Recall that we've encoded each movie's genre into its tf-idf representation, now we want to define a proximity measure. A commonly used measure is the cosine similarity. 
 This similarity measure owns its name to the fact that it equals to the cosine of the angle between the two vectors being compared. The lower the angle between two vectors, the higher the cosine will be, hence yielding a higher similarity factor. It is expressed as follows (source):
+![image](images/Step-5.1.png)
+<br>
 <br>
 Where, since the inner product can be expressed as the product of the magnitudes times the cosing of the angle between the two vectors, it becomes clear that the above can be expressed as the cosine source:
 <br>
 So here we'll be obtaining the cosine by taking the inner product between both vectors, and normalising by their respective magnitudes. 
 To compute the cosine similarities between all tf-idf vectors, we can again use scikit-learn. sklearn.metrics.pairwise contains many pairwise distance metrics, among them cosine_similarity, which will compute the cosine similarities between all the input rows, in this case tf-idf vectors:
+![image](images/Step-5.2.png)
 <br>
 
-###### Step- 6 : Testing the Recommender <br>
+###### Step- 6 : Testing the Recommender 
+![image](images/Step-6.png)
+<br>
 
 
  
