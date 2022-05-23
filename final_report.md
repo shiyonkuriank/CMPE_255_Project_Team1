@@ -95,7 +95,8 @@ New items can be recommended; just data for that item is required.
 The user will never be recommended for different items.
 Business cannot be expanded as the user does not try a different type of product.
 If the user matrix or item matrix is changed the cosine similarity matrix needs to be calculated again.
-images/Content-Based-Filtering.png
+![image](images/Content-Based-Filtering.png)
+
 
 ###### Introduction to TF-IDF <br>
 TF-IDF stands for “Term Frequency — Inverse Document Frequency”. This is a technique to quantify words in a set of documents. We generally compute a score for each word to signify its importance in the document and corpus. This method is a widely used technique in Information Retrieval and Text Mining.<br>
