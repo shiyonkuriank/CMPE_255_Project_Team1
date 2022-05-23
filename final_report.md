@@ -128,6 +128,7 @@ The biggest advantages of TF-IDF come from how simple and easy to use it is. It 
 2.)Also as mentioned above, like BoW, TF-IDF ignores word order and thus compound nouns like “Queen of England” will not be considered as a “single unit”. This also extends to situations like negation with “not pay the bill” vs “pay the bill”, where the order makes a big difference. In both cases using NER tools and underscores, “queen_of_england” or “not_pay” are ways to handle treating the phrase as a single unit.<br>
 
 Let’s implement this on our problem statement-
+
 ![image](images/Movie-Recommendation.png)
 <br>
 
@@ -140,7 +141,8 @@ Let's load this data into Python. I will load the dataset with Pandas onto Dataf
 ###### Step- 2 : Data Exploration <br>
 As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.
 ![image](images/Step-2.png)
-<br>
+
+
 
 ![image](images/Step-2.1.png)
 <br>
