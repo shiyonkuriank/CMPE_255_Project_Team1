@@ -190,7 +190,7 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 ![image](https://user-images.githubusercontent.com/90216358/169928704-95ec9f7e-fc6a-4081-94c5-6cf827365b7c.png)
 
 ###### 2.2 User-Based Collaborative Filtering <br>
-Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
+Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. 
 An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
 
 ###### 2.2.1 What is SVD in Collaborative Filtering
