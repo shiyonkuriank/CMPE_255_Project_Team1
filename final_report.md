@@ -205,6 +205,8 @@ The Singular Value Decomposition (SVD), a method from linear algebra that has be
 
 The factorization of this matrix is done by the singular value decomposition. It finds factors of matrices from the factorization of a high-level (user-item-rating) matrix. The singular value decomposition is a method of decomposing a matrix into three other matrices as given below: Where A is a m x n utility matrix, U is a m x r orthogonal left singular matrix, which represents the relationship between users and latent factors, S is a r x r diagonal matrix, which describes the strength of each latent factor and V is a r x n diagonal right singular matrix, which indicates the similarity between items and latent factors. The latent factors here are the characteristics of the items, for example, the genre of the music. The SVD decreases the dimension of the utility matrix A by extracting its latent factors. It maps each user and each item into a r-dimensional latent space. This mapping facilitates a clear representation of relationships between users and items. 
 
+Here are the prediction results using SVD. 
+
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%203.png)
 
 Let each item be represented by a vector xi and each user is represented by a vector yu. The expected rating by a user on an item   can be given as: Here,   is a form of factorization in singular value decomposition. The xi and yu can be obtained in a manner that the square error difference between their dot product and the expected rating in the user-item matrix is minimum. It can be expressed as: In order to let the model, generalize well and not overfit the training data, a regularization term is added as a penalty to the above formula. In order to reduce the error between the value predicted by the model and the actual value, the algorithm uses a bias term. Let for a user-item pair (u, i), μ is the average rating of all items, bi is the average rating of item i minus μ and bu is the average rating given by user u minus μ, the final equation after adding the regularization term and bias can be given as:
@@ -227,6 +229,8 @@ To obtain the optimal 𝑃 and 𝑄, the regularized squared error can be minimi
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%206.png)
 
 where 𝜆 is the regularization parameter to regularize the factors and prevent overfitting. 
+
+Here are the prediction results using SVD++. 
 
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%209.png)
 
