@@ -263,6 +263,9 @@ Below figure shows the flow of the hybrid method.
 
 ###### 3.1 Choice of collaborative algorithm
 We implemented four algorithms for collaborative filtering which are KNN, KNN With Means, SVD and SVD++. To measure the methods, we used the evaluation metric RMSE. RMSE is calculated as seen below: <br >
+
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/rmse.png)
+
 Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. So we divided the users into two groups - active user and inactive users.<br >
 Below figures show the RMSE and time taken for the four algorithms
 For KNN
