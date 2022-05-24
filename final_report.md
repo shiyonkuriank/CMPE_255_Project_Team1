@@ -149,7 +149,8 @@ As we'll be coding in Google Colab, we'll need to upload the movies and ratings 
 
 Data Preprocessing
 The 'rating' file contains ratings given by users to the movies. Seaborn is used to visualize the number of ratings provided by different users for different ratings. Figure shows the distribution of the ratings.csv file.
-![image](https://user-images.githubusercontent.com/90216358/169903960-90ac436c-8929-40a8-86a0-b924401510f4.png)
+![image](https://user-images.githubusercontent.com/90216358/169928370-3c5d8ecc-da6e-4a37-9f48-b722f74d0a47.png)
+
 Fig 1.
 The ‘movies’ file contains the movie's id, title, and genres. Based on the movieId, both the movies and ratings are combined. The movies are then grouped and the total rating count for each is calculated. This will aid in comprehending the dispersion of movie ratings. There are many movies with only one rating provided by the user. We are filtering the movies in such a way that movies with minimum 3 ratings are only considered. Similarly, we group the users in such a way that those rated greater than or equal to 50.
 
@@ -181,11 +182,12 @@ The root mean squared error, or RMSE, is the most used statistic for measuring t
 Surprise is a Python scikit for creating and evaluating recommender systems using explicit rating data. It provides tools for evaluating, analyzing, and comparing the performance of algorithms. The surprise package has many builtin methods. One Of that is RMSE. For the movie recommendation system that we have built, we are calculating the RMSE score to see the effectiveness of the model.
 We import, Reader, Dataset and cross_validate functions to perform this. We split the dataset into train and test data. Since we have used the KNN model, we need to import the KNNBasic and compute the RMSE. The RMSE score for KNN Model is shown in the figure below.
 
-![image](https://user-images.githubusercontent.com/90216358/169904459-d8cc837a-5104-4a43-baf3-b92894a461ec.png)
+![image](https://user-images.githubusercontent.com/90216358/169928545-3c580721-362c-4372-96ca-c7313c8f2a15.png)
+
 
 KNNWithMeans is a basic collaborative filtering algorithm that considers each user's mean ratings. The RMSE score for KNN Model is shown in the figure below.
 
-![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
+![image](https://user-images.githubusercontent.com/90216358/169928704-95ec9f7e-fc6a-4081-94c5-6cf827365b7c.png)
 
  ## 2.2 User-Based Collaborative Filtering <br>
 Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
