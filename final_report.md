@@ -312,12 +312,11 @@ When the user is an existing user
 * We can improve the system by considering the datetime when the movie was released and when the user gave the rating. This improves the serendipity of the system.
 * It became complex to calculate RMSE for hybrid approach and content-based aproach.
 
-###### Conclusion
+## Conclusion
 To conclude, A hybrid recommendation system is a special type of recommendation system which can be considered as the combination of the content and collaborative filtering method. Combining collaborative and content-based filtering together may help in overcoming the shortcoming we are facing at using them separately like cold start problem and also can be more effective in some cases. Hybrid recommender system approaches can be implemented in various ways like by using content and collaborative-based methods to generate predictions separately and then combining the prediction or we can just add the capabilities of collaborative-based methods to a content-based approach (and vice versa). There are several studies that compare the performance of the conventional approaches with the hybrid methods and say that by using the hybrid methods we can generate more accurate recommendations.<br>
 We can clearly see that a Hybrid Recommendation System performs better even on our dataset - ‘movies dataset’ wherein we are accurately able to recommend top 10 movies to the end user. The model's accuracy is significantly higher in this case and the predicted results are closer to the expected one’s.
 
-
-
- 
-
-
+## REFERENCES 
+[1]  L. Dogruel and X. Hao, "Movie Selection and E-WOM  Preference:  A  Cross-Cultural Perspective,"  International  Journal  of Communication, vol. 10, p. 21, 2016. 
+[2] K. G. Saranya and G. S. Sadasivam, ``Personalized movie article recommendation with novelty using collaborative filtering based rough set theory,\'\' Mobile Netw. Appl., vol. 22, no. 4, pp. 719_729, 2017.
+[3] Jiang, Shuhao & Song, Jinlin. (2021). Evaluation Metrics for Personalized Recommendation Systems. Journal of Physics: Conference Series. 1920. 012109. 10.1088/1742-6596/1920/1/012109. 
