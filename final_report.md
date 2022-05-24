@@ -310,7 +310,7 @@ When the user is an existing user
 * The collaborative-based method takes users into consideration but suffers from cold-start. It cannot suggest movies when the user is new.
 * The hybrid algorithm tries to address the issues by combining both. But the SVDpp algorithm used for collaborative-based runs for around 5 minutes.
 * We can improve the system by considering the datetime when the movie was released and when the user gave the rating. This improves the serendipity of the system.
-* It became complex to calculate RMSE for hybrid approach and content-based aproach.
+* It became complex to calculate RMSE for hybrid approach and content-based aproach as we are not predicting the ratings and the calculation requires it.
 
 ## Conclusion
 To conclude, A hybrid recommendation system is a special type of recommendation system which can be considered as the combination of the content and collaborative filtering method. Combining collaborative and content-based filtering together may help in overcoming the shortcoming we are facing at using them separately like cold start problem and also can be more effective in some cases. Hybrid recommender system approaches can be implemented in various ways like by using content and collaborative-based methods to generate predictions separately and then combining the prediction or we can just add the capabilities of collaborative-based methods to a content-based approach (and vice versa). There are several studies that compare the performance of the conventional approaches with the hybrid methods and say that by using the hybrid methods we can generate more accurate recommendations.<br>
