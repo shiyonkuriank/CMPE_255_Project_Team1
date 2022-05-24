@@ -28,4 +28,6 @@ Hybrid Recommendation Systems
 6. To run the different collaborative-models, run one of the ItemBasedCF_SVD.ipynb, ItemBasedCF_SVDp.ipynb, ItemBasedCF_KNN.ipynb, ItemBasedCF_KNNMeans.ipynb
 7. Before running the Hybrid-based model, run the ItemBasedCF_SVD.ipynb and ItemBasedCF_SVDpp.ipynb if you have not run it before hand. This creates results from the two algorithms in svd_predictions.csv and svdpp_predictions.csv files. These will be used in the hybrid approach.
 8. To run the hybrid model, run HybridRecommender.ipynb file. If you give an existing user, the model runs collabortaive filtering method. If you give a non-existing, you are asked to choose between option 1 which recommends based on Popularity and option 2 which recommends based on input movie.
+### Link to video
+https://drive.google.com/file/d/1JOQQCux21KCVcOJYzrtFzOlb6IT1cw1k/view?usp=sharing
 
