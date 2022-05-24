@@ -232,12 +232,16 @@ Main disdavantage of content-based system: It put a great deal of importance on 
 Collaborative-based approach takes into account the ratings given by particular user to a particular movie and then recommends movies which are similar to user's interests. But the the problem with this approach is that it needs to have a knowledge about user's preference beforehand. This approach suffers from cold start problem. When there is a new movie who has not rated any movie or when there is a new movie which was not rated by any user, this algorithm cannot recommend movies suitable as it doesn't have the required information.
 Thus, a lot of recommendation systems take the hybrid aproach. Here, we implemented a hybrid method which works as described below.
 1. When there is a new user, he/she gets the most popular movies recommended if he doesn't search for any movie. If the user searches for a movie, we use content-based approach to recommend movies similar to the movie searched.
-2. When there is an already existing user but is inactive i.e. he/she did not rate many movies (<50 ratings), then we use collaborative filtering using SVD algorithm to recommend a movie.
-3. When the existing user is an active user who rated more than 50 movies, we use collaborative filtering using SVD++ to give recommendations.
-####### 3.1 Choice of collaborative algorithm
-We implemented four algorithms for collaborative filtering which are KNN, KNN With Means, SVD and SVD++. To measure the methods, we used the evaluation metric RMSE. RMSE is calculated as seen below:
+2. When there is an already existing user but is inactive i.e. he/she did not rate many movies (<50 ratings), then we use collaborative filtering using SVD algorithm to recommend a movie. <br >
+3. When the existing user is an active user who rated more than 50 movies, we use collaborative filtering using SVD++ to give recommendations. <br >
+Below figure shows the flow of the hybrid method.
+###### 3.1 Choice of collaborative algorithm
+We implemented four algorithms for collaborative filtering which are KNN, KNN With Means, SVD and SVD++. To measure the methods, we used the evaluation metric RMSE. RMSE is calculated as seen below: <br >
+Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. So we divided the users into two groups - active user and inactive users. We recommend movies using SVD++ algorithm for active users and SVD algorithm which is the second best method of the four for the inactive users.<br >
+###### 3.2 Division of users
+When we plot a graph to show the distribution of ratings, we see that a lot of users have given less than 50 ratings. Below is the ratings distribution plot. <br >
+We can see that a lot of users fall in the 20-80 ratings. Since SVD++ was taking considerably more time which is perceivable than the other algorithms, we decided to use different algorithms for different set of users. We use SVD which has almost similar RMSE as SVD++ for inactive users so that the recommendation is given in less time.
 
-Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. 
 
  
 
