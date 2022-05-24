@@ -190,6 +190,13 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 
 ![image](https://user-images.githubusercontent.com/90216358/169928704-95ec9f7e-fc6a-4081-94c5-6cf827365b7c.png)
 
+###### Disadvantages of Item Based Collaborative filtering
+###### Cold Start
+The dot product of the associated embeddings represents the model's forecast for a given movie pair. As a result, if an item isn't observed during training, the system won't be able to construct an embedding for it or query the model with it. This problem is known as the cold-start problem.
+###### Hard to include side features for query/item
+Any features not related to the query or item ID are referred to as side features. Side features for movie recommendations could include country or age. The model's quality is improved by including available side features. 
+
+
 ###### 2.2 User-Based Collaborative Filtering <br>
 Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
 An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
