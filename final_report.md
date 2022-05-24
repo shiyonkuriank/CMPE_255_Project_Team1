@@ -149,10 +149,8 @@ All the necessary libraries are imported at the beginning for simplicity.
 As we'll be coding in Google Colab, we'll need to upload the movies and ratings csv files first. Once the file is uploaded we read the file contents using Pandas.
 
 Data Preprocessing
-The 'rating' file contains ratings given by users to the movies. Seaborn is used to visualize the number of ratings provided by different users for different ratings. Figure shows the distribution of the ratings.csv file.
-![image](https://user-images.githubusercontent.com/90216358/169928370-3c5d8ecc-da6e-4a37-9f48-b722f74d0a47.png)
+The 'rating' file contains ratings given by users to the movies. Seaborn is used to visualize the number of ratings provided by different users for different ratings. 
 
-Fig 1.
 The ‘movies’ file contains the movie's id, title, and genres. Based on the movieId, both the movies and ratings are combined. The movies are then grouped and the total rating count for each is calculated. This will aid in comprehending the dispersion of movie ratings. There are many movies with only one rating provided by the user. We are filtering the movies in such a way that movies with minimum 3 ratings are only considered. Similarly, we group the users in such a way that those rated greater than or equal to 50.
 
 KNN collaborative filtering algorithm, is a combination of both collaborative filtering algorithm and KNN algorithm.
@@ -240,6 +238,8 @@ We implemented four algorithms for collaborative filtering which are KNN, KNN Wi
 Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. So we divided the users into two groups - active user and inactive users. We recommend movies using SVD++ algorithm for active users and SVD algorithm which is the second best method of the four for the inactive users.<br >
 ###### 3.2 Division of users
 When we plot a graph to show the distribution of ratings, we see that a lot of users have given less than 50 ratings. Below is the ratings distribution plot. <br >
+![image](https://user-images.githubusercontent.com/90216358/169928370-3c5d8ecc-da6e-4a37-9f48-b722f74d0a47.png)
+
 We can see that a lot of users fall in the 20-80 ratings. Since SVD++ was taking considerably more time which is perceivable than the other algorithms, we decided to use different algorithms for different set of users. We use SVD which has almost similar RMSE as SVD++ for inactive users so that the recommendation is given in less time.
 
 
