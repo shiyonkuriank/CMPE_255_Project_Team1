@@ -130,7 +130,7 @@ To compute the cosine similarities between all tf-idf vectors, we can again use 
 ![image](images/Step-6.png)
 <br>
 
-###### 2. Item Item Based Collaborative Filtering
+###### 2.1. Item Item Based Collaborative Filtering
 Item-based collaborative filtering is a recommendation system that uses item similarity and user ratings to make recommendations. This method is based on the idea that users give similar ratings to similar items. To develop an efficient recommender system, many methods are being investigated. Because it is domain-free, the Collaborative Filtering (CF) recommender system beats the Content-based recommender system. Item-based CF (IBCF) is a well-known technique in the field of CF that gives accurate suggestions and has been employed by applications that provide product recommendation systems. In this section we explain the implementation of Item-based Collaborative Filtering using Python to build a movie recommendation system.
 
 ![1_3ALliiz9hG79_2xopzgyrQ](https://user-images.githubusercontent.com/90216358/169903447-11c90259-e859-477d-a535-4af89de19eb5.png)
@@ -141,7 +141,7 @@ Item based collaborative Filtering models are developed using machine learning a
 Lets move to the implementation of the Item-based Collaborative Filtering using Python.
 
 
-###### 2.1 Implementation with KNN and KNNWith Means Model for Prediction of 10 Movies
+###### 2.1.1 Implementation with KNN and KNNWith Means Model for Prediction of 10 Movies
 The dataset we have used is https://files.grouplens.org/datasets/movielens/ml-latest-small.zip. It contains 100836 ratings and 3683 tag applications across 9742 movies. These data were created by 610 users between March 29, 1996 and September 24, 2018. This dataset was generated on September 26, 2018.
 
 All the necessary libraries are imported at the beginning for simplicity. 
