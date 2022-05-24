@@ -228,7 +228,7 @@ To obtain the optimal 𝑃 and 𝑄, the regularized squared error can be minimi
 
 where 𝜆 is the regularization parameter to regularize the factors and prevent overfitting. 
 
-![alt text]https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%209.png)
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%209.png)
 
 ###### 2.1.4 Disadvantages of Item Based Collaborative filtering
 ###### Cold Start
