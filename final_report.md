@@ -5,7 +5,9 @@ Every year new movies are released with a varied story-line or a genre which cou
 In this hustling world, entertainment is a necessity for each one of us to refresh our mood and energy. Entertainment regains our confidence for work and we can work more enthusiastically. For revitalizing ourselves, we can listen to our preferred music or can watch movies of our choice. For watching favorable movies online, we can utilize movie recommendation systems, which are more reliable, since searching of preferred movies will require more and more time which one cannot afford to waste. In this paper, to improve the quality of a movie recommendation system, a Hybrid approach by combining content based filtering and collaborative filtering. Hybrid approach helps to get the advantages from both the approaches as well as tries to eliminate the drawbacks of both methods. What is a recommender system?
 A recommender system is a filtration program whose aim is to provide the most relevant information to a user by discovering patterns in a dataset. The algorithm rates the items and shows the user the items that they would rate highly. An example of recommendation in action is when you visit amazon and you notice that some items are being recommended to you or when Netflix recommends certain movies to you. The domain-specific item is a movie; therefore, the main focus of our recommendation system is to filter and predict only those movies which a user would prefer given some data about the user him or herself. 
 Different filtration strategies:<br>
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/filtration_strategies.png)
+
+   ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/filtration_strategies.png)
+   
 ###### 1. Content-Based Filtering <br>
 This filtration strategy is based on the data provided about the items. The algorithm recommends products that are similar to the ones that a user has liked in the past. This similarity (generally cosine similarity) is computed from the data we have about the items as well as the user’s past preferences. For example, if a user likes movies such as ‘The Prestige’ then we can recommend him the movies of ‘Christian Bale’ or movies with the genre ‘Thriller’ or maybe even movies directed by ‘Christopher Nolan’. So, what happens here the recommendation system checks the past preferences of the user and find the film “The Prestige”, then tries to find similar movies to that using the information available in the database such as the lead actors, the director, genre of the film, production house, etc. and based on this information find movies similar to “The Prestige”.
 
@@ -235,12 +237,30 @@ Thus, a lot of recommendation systems take the hybrid aproach. Here, we implemen
 Below figure shows the flow of the hybrid method.
 ###### 3.1 Choice of collaborative algorithm
 We implemented four algorithms for collaborative filtering which are KNN, KNN With Means, SVD and SVD++. To measure the methods, we used the evaluation metric RMSE. RMSE is calculated as seen below: <br >
-Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. So we divided the users into two groups - active user and inactive users. We recommend movies using SVD++ algorithm for active users and SVD algorithm which is the second best method of the four for the inactive users.<br >
+Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. So we divided the users into two groups - active user and inactive users.<br >
+Below figures show the RMSE and time taken for the four algorithms
+For KNN
+
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knn.png)
+
+For KNN Means
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knnmeans.png)
+
+For SVD
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/svd.png)
+
+For SVD++
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/svdpp.png)
+
+The time shown in the above pictures is in seconds. we can see that SVD++ takes a considerably longer time to run than the others.
+So we are recommending movies using SVD++ algorithm for active users and SVD algorithm which is the second best method of the four for the inactive users.<br >
 ###### 3.2 Division of users
 When we plot a graph to show the distribution of ratings, we see that a lot of users have given less than 50 ratings. Below is the ratings distribution plot. <br >
 ![image](https://user-images.githubusercontent.com/90216358/169928370-3c5d8ecc-da6e-4a37-9f48-b722f74d0a47.png)
 
 We can see that a lot of users fall in the 20-80 ratings. Since SVD++ was taking considerably more time which is perceivable than the other algorithms, we decided to use different algorithms for different set of users. We use SVD which has almost similar RMSE as SVD++ for inactive users so that the recommendation is given in less time.
+
+###### Conclusion
 
 
  
