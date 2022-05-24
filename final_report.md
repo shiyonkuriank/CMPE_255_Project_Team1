@@ -85,10 +85,10 @@ Let's load this data into Python. I will load the dataset with Pandas onto Dataf
 As we'll explore in the next section, the genres alone can be used to provide a reasonably good content based recommendation. But before that, we need to analyse some important aspects.
 
 
-![image](images/Step-2.png)
+![image](images/Data_Exploration(CBF).JPG)
 
 
-![image](images/Step-2.1.png)
+![image](images/Data_Exploration_Graph(CBF).JPG)
 <br>
 
 ###### Step- 3 : Data Insights: 'Genres' <br>
@@ -96,7 +96,7 @@ As we'll explore in the next section, the genres alone can be used to provide a 
 Which are the most popular genres?
 This will be a relevant aspect to take into account when building the content based recommender. We want to understand which genres really are relevant when it comes to defining a user's taste. A reasonable assumption is that it is precisely the unpopular genres, that will be more relevant in characterising the user's taste.
 The most relevant genres are:<br>
-![image](images/Step-3.png)
+![image](images/Data_Insights(CBF).JPG)
 <br>
 
 ###### Step- 4 : Building a Content Based Recommender <br>
@@ -127,8 +127,9 @@ To compute the cosine similarities between all tf-idf vectors, we can again use 
 <br>
 
 ###### Step- 6 : Testing the Recommender 
-![image](images/Step-6.png)
-<br>
+![image](images/Test_Case(CBF).JPG)
+
+![image](images/Test_Result(CBF).JPG)
 
 ###### 2.1. Item Item Based Collaborative Filtering
 Item-based collaborative filtering is a recommendation system that uses item similarity and user ratings to make recommendations. This method is based on the idea that users give similar ratings to similar items. To develop an efficient recommender system, many methods are being investigated. Because it is domain-free, the Collaborative Filtering (CF) recommender system beats the Content-based recommender system. Item-based CF (IBCF) is a well-known technique in the field of CF that gives accurate suggestions and has been employed by applications that provide product recommendation systems. In this section we explain the implementation of Item-based Collaborative Filtering using Python to build a movie recommendation system.
