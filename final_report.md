@@ -187,7 +187,38 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 
 ![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
 
- 
+ ## 2.2 User-Based Collaborative Filtering <br>
+Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
+An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
+
+###### 2.2.1 What is SVD in Collaborative Filtering
+The Singular Value Decomposition (SVD), a method from linear algebra that has been generally used as a dimensionality reduction technique in machine learning. SVD is a matrix factorization technique, which reduces the number of features of a dataset by reducing the space dimension from N-dimension to K-dimension (where K<N). In the context of the recommender system, the SVD is used as a collaborative filtering technique. It uses a matrix structure where each row represents a user, and each column represents an item. The elements of this matrix are the ratings that are given to items by users.
+
+picture
+
+The factorization of this matrix is done by the singular value decomposition. It finds factors of matrices from the factorization of a high-level (user-item-rating) matrix. The singular value decomposition is a method of decomposing a matrix into three other matrices as given below: Where A is a m x n utility matrix, U is a m x r orthogonal left singular matrix, which represents the relationship between users and latent factors, S is a r x r diagonal matrix, which describes the strength of each latent factor and V is a r x n diagonal right singular matrix, which indicates the similarity between items and latent factors. The latent factors here are the characteristics of the items, for example, the genre of the music. The SVD decreases the dimension of the utility matrix A by extracting its latent factors. It maps each user and each item into a r-dimensional latent space. This mapping facilitates a clear representation of relationships between users and items. 
+
+picture
+
+Let each item be represented by a vector xi and each user is represented by a vector yu. The expected rating by a user on an item   can be given as: Here,   is a form of factorization in singular value decomposition. The xi and yu can be obtained in a manner that the square error difference between their dot product and the expected rating in the user-item matrix is minimum. It can be expressed as: In order to let the model, generalize well and not overfit the training data, a regularization term is added as a penalty to the above formula. In order to reduce the error between the value predicted by the model and the actual value, the algorithm uses a bias term. Let for a user-item pair (u, i), μ is the average rating of all items, bi is the average rating of item i minus μ and bu is the average rating given by user u minus μ, the final equation after adding the regularization term and bias can be given as:
+The above equation is the main component of the algorithm which works for singular value decomposition-based recommendation system.
+
+###### 2.2.2 What is SVD++ in Collaborative Filtering 
+The “user-item” rating matrix is the core data used by the recommender system. MF is a good method of predicting the missing ratings in collaborative filtering. In brief, MF involves factorizing a sparse matrix and finding two latent factor matrices: the first is the user matrix to indicate the user’s features (i.e., the degree of preference of a user for each factor) and the other is the item matrix, which indicates the item’s features (i.e., the weight of an item for each factor). The missing ratings are then predicted from the inner product of these two factor matrices. Let 𝑅𝑛×𝑚 be a rating matrix containing the ratings of 𝑛 users for 𝑚 items. Each matrix element 𝑟𝑢𝑖 refers to the rating of user 𝑢for item 𝑖. Given a lower dimension𝑑, MF factorizes the raw matrix𝑅𝑛×𝑚 into two latent factor matrices: one is the user-factor matrix𝑃𝑛×𝑑 and the other is the item-factor matrix 𝑄𝑑×𝑚. The factorization is done such that 𝑅 is approximated as the inner product of 𝑃and𝑄(i.e., ̃𝑅𝑛×𝑚 =𝑃𝑛×𝑑×𝑄𝑑×𝑚),and each observed rating 𝑟𝑢𝑖 is approximated by ̃𝑟𝑢𝑖 =𝑞𝑇 𝑖⋅𝑝𝑢 (also called the predicted value). However, 𝑞𝑇 𝑖 ⋅𝑝𝑢 only captures the relationship between the user 𝑢 and the item 𝑖. In the real world, the observed rating may be affected by the preference of the user or the characteristics of the item. In other words, the relationship between the user 𝑢 and the item 𝑖 can be replaced by the bias information. For instance, suppose one wants to predict the rating of the movie “Batman” by the user “Tom.” Now, the average rating of all movies on one website is 3.5, and Tom tends to give a rating that is 0.3 lower than the average because he is a critical man. The movie “Batman” is better than the average movie, so it tends to be rated 0.2 above the average. Therefore, considering the user and movie bias information, by performing the calculation 3.5 − 0.3 + 0.2 = 3.4, it is predicted that Tom will give the movie “Batman” a rating of 3.4. The user and item bias information can reflect the truth of the rating more objectively. SVD is a typical factorization technology (known as a baseline predictor in some works in the literature). Thus, the predicted rating is changed to
+
+picture
+
+where𝜇 is the overall average rating and 𝑏𝑢 and 𝑏𝑖 indicate the observed deviations of user 𝑢 and item 𝑖, respectively. 
+The goal of a recommender system is to improve the predictive accuracy. In fact, the user will leave some implicit feedback information, such as historical browsing data, and historical rating data, on Web applications as long as any user has rated item 𝑖, no matter what the specific rating value is. To a certain extent, the rating operation already reflects the degree of a user’s preference for each latent factor. Therefore, the SVD++ model introduces the implicit feedback information based on SVD; that is, it adds a factor vector (𝑦𝑗 ∈𝑅𝑓) for each item, and these item factors are used to describe the characteristics of the item, regardless of whether it has been evaluated. Then, the user’s factor matrix is modelled, so that a better user bias can be obtained. Thus, the predictive rating of the SVD++ model is
+picture
+
+where 𝑅(𝑢) is the number of items rated by user 𝑢. 
+To obtain the optimal 𝑃 and 𝑄, the regularized squared error can be minimized as follows. The objective function of the SVD++model is 
+
+picture
+
+where 𝜆 is the regularization parameter to regularize the factors and prevent overfitting. 
+
  
 
 
