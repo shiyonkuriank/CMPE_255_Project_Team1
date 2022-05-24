@@ -21,65 +21,8 @@ The concept in this case is to find similar movies instead of similar users and 
 Recent research has demonstrated that a hybrid approach, combining collaborative filtering and content-based filtering could be more effective in some cases. Hybrid approaches can be implemented in several ways, by making content-based and collaborative-based predictions separately and then combining them, by adding content-based capabilities to a collaborative-based approach (and vice versa), or by unifying the approaches into one model. Netflix is a good example of the use of hybrid recommender systems. The website makes recommendations by comparing the watching and searching habits of similar users (i.e. collaborative filtering) as well as by offering movies that share characteristics with films that a user has rated highly (content-based filtering).
 
 ## Methods and Analysis
-###### 1. Item Item Based Collaborative Filtering
-Item-based collaborative filtering is a recommendation system that uses item similarity and user ratings to make recommendations. This method is based on the idea that users give similar ratings to similar items. To develop an efficient recommender system, many methods are being investigated. Because it is domain-free, the Collaborative Filtering (CF) recommender system beats the Content-based recommender system. Item-based CF (IBCF) is a well-known technique in the field of CF that gives accurate suggestions and has been employed by applications that provide product recommendation systems. In this section we explain the implementation of Item-based Collaborative Filtering using Python to build a movie recommendation system.
 
-![1_3ALliiz9hG79_2xopzgyrQ](https://user-images.githubusercontent.com/90216358/169903447-11c90259-e859-477d-a535-4af89de19eb5.png)
-
-
-As shown in the figure above, The similarities between movies are calculated first. Second, movies similar to those already rated are examined and recommended based on the computed similarities.
-Item based collaborative Filtering models are developed using machine learning algorithms to predict movies for one user. Here we use KNN Model. The k-nearest neighbors (KNN) approach relies on item feature similarity rather than making any assumptions about the underlying data distribution. When a KNN predicts a movie, it calculates the 'distance' between the target movie and all other movies in its database. The top 'k' nearest neighbor movies (with the shortest distance measure) are then returned as the most similar movie choices.
-Lets move to the implementation of the Item-based Collaborative Filtering using Python.
-
-
-###### 1.1 Implementation with KNN and KNNWith Means Model for Prediction of 10 Movies
-The dataset we have used is https://files.grouplens.org/datasets/movielens/ml-latest-small.zip. It contains 100836 ratings and 3683 tag applications across 9742 movies. These data were created by 610 users between March 29, 1996 and September 24, 2018. This dataset was generated on September 26, 2018.
-
-All the necessary libraries are imported at the beginning for simplicity. 
-As we'll be coding in Google Colab, we'll need to upload the movies and ratings csv files first. Once the file is uploaded we read the file contents using Pandas.
-
-Data Preprocessing
-The 'rating' file contains ratings given by users to the movies. Seaborn is used to visualize the number of ratings provided by different users for different ratings. Figure shows the distribution of the ratings.csv file.
-![image](https://user-images.githubusercontent.com/90216358/169903960-90ac436c-8929-40a8-86a0-b924401510f4.png)
-Fig 1.
-The ‘movies’ file contains the movie's id, title, and genres. Based on the movieId, both the movies and ratings are combined. The movies are then grouped and the total rating count for each is calculated. This will aid in comprehending the dispersion of movie ratings. There are many movies with only one rating provided by the user. We are filtering the movies in such a way that movies with minimum 3 ratings are only considered. Similarly, we group the users in such a way that those rated greater than or equal to 50.
-
-KNN collaborative filtering algorithm, is a combination of both collaborative filtering algorithm and KNN algorithm.
-We want the data for K-Nearest Neighbors to be in an array, with each row representing a movie and each column representing a separate user. We'll pivot the data frame to a wide format with movies as rows and users as columns to reshape it. Since we'll be conducting linear algebra operations for calculating distances between vectors, we'll fill in the missing observations with 0s . Finally, we convert the dataframe's values into a scipy sparse matrix for faster calculations.
-![image](https://user-images.githubusercontent.com/90216358/169904155-b0cd2e27-11a4-4221-a0fc-11ea5e90bb42.png)
-
-The KNN algorithm is used to select the neighbors. In this project we use k value to be 10. Ten movies which are similar in distance with the input movie by the user are calculated and recommended to the user.
-
-COSINE COMPUTING
-Here we use cosine similarity, a method that computes the closeness between two movies by figuring the cosine of the point between the two vectors
-
-where Ai and Bi are parts of vectors A and B respectively.
-The subsequent closeness ranges from −1 meaning precisely inverse, to 1 meaning precisely the equivalent, with 0 demonstrating symmetry or decorrelation, while in the middle qualities show halfway similarity or uniqueness. For content coordinating, the characteristic vectors A and B are generally the term recurrence vectors of the reports. Cosine closeness can be viewed as a technique for normalizing document length during comparison.
-We calculate cosine similarity between the input movie and the other movies.
-KNN NEAREST NEIGHBOR SELECTION
-After the calculation of similarity as Similarity between movies, then the algorithm selects a number of movies that are nearest to the input movie. Here, the KNN model selects 10 movies that are similar to the input movie. Select just the 10  high similitudes as neighbors. As shown in figure below.
-
-![image](https://user-images.githubusercontent.com/90216358/169904265-c2e7b9c9-3066-4856-b0f2-3463fb783534.png)
-
-To test the model, we gave a sample input of  'Toy story' to see if our model gives 10 recommendations. The figure below shows the output of our implementation.
-
-![image](https://user-images.githubusercontent.com/90216358/169904362-16ffce39-bb12-4547-bcee-2c4f17d16b7d.png)
-
-Thus our KNN model successfully recommended 10 movies that were similar to the input movie.
-
-RMSE SCORE
-The root mean squared error, or RMSE, is the most used statistic for measuring the performance of a prediction model. The primary concept is to compare the model's predictions to actual observed data to see how bad/wrong they are. As a result, a high RMSE is "bad," whereas a low RMSE is "excellent."
-Surprise is a Python scikit for creating and evaluating recommender systems using explicit rating data. It provides tools for evaluating, analyzing, and comparing the performance of algorithms. The surprise package has many builtin methods. One Of that is RMSE. For the movie recommendation system that we have built, we are calculating the RMSE score to see the effectiveness of the model.
-We import, Reader, Dataset and cross_validate functions to perform this. We split the dataset into train and test data. Since we have used the KNN model, we need to import the KNNBasic and compute the RMSE. The RMSE score for KNN Model is shown in the figure below.
-
-![image](https://user-images.githubusercontent.com/90216358/169904459-d8cc837a-5104-4a43-baf3-b92894a461ec.png)
-
-KNNWithMeans is a basic collaborative filtering algorithm that considers each user's mean ratings. The RMSE score for KNN Model is shown in the figure below.
-
-![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
-
- 
-###### 2. Content Based Filtering <br>
+###### 1. Content Based Filtering <br>
 This filtering is based on the description or some data provided for that product. The system finds the similarity between products based on its context or description. The user’s previous history is taken into account to find similar products the user may like.
 For example, if a user likes movies such as ‘Mission Impossible’ then we can recommend to him the movies of ‘Tom Cruise’ or movies with the genre ‘Action’.<br>
 In this filtering, two types of data are used. First, the likes of the user, the user’s interest, user’s personal information such as age or, sometimes the user’s history too. This data is represented by the user vector. Second, information related to the product’s known as an item vector. The item vector contains the features of all items based on which similarity between them can be calculated.<br>
@@ -187,7 +130,64 @@ To compute the cosine similarities between all tf-idf vectors, we can again use 
 ![image](images/Step-6.png)
 <br>
 
+###### 2. Item Item Based Collaborative Filtering
+Item-based collaborative filtering is a recommendation system that uses item similarity and user ratings to make recommendations. This method is based on the idea that users give similar ratings to similar items. To develop an efficient recommender system, many methods are being investigated. Because it is domain-free, the Collaborative Filtering (CF) recommender system beats the Content-based recommender system. Item-based CF (IBCF) is a well-known technique in the field of CF that gives accurate suggestions and has been employed by applications that provide product recommendation systems. In this section we explain the implementation of Item-based Collaborative Filtering using Python to build a movie recommendation system.
 
+![1_3ALliiz9hG79_2xopzgyrQ](https://user-images.githubusercontent.com/90216358/169903447-11c90259-e859-477d-a535-4af89de19eb5.png)
+
+
+As shown in the figure above, The similarities between movies are calculated first. Second, movies similar to those already rated are examined and recommended based on the computed similarities.
+Item based collaborative Filtering models are developed using machine learning algorithms to predict movies for one user. Here we use KNN Model. The k-nearest neighbors (KNN) approach relies on item feature similarity rather than making any assumptions about the underlying data distribution. When a KNN predicts a movie, it calculates the 'distance' between the target movie and all other movies in its database. The top 'k' nearest neighbor movies (with the shortest distance measure) are then returned as the most similar movie choices.
+Lets move to the implementation of the Item-based Collaborative Filtering using Python.
+
+
+###### 2.1 Implementation with KNN and KNNWith Means Model for Prediction of 10 Movies
+The dataset we have used is https://files.grouplens.org/datasets/movielens/ml-latest-small.zip. It contains 100836 ratings and 3683 tag applications across 9742 movies. These data were created by 610 users between March 29, 1996 and September 24, 2018. This dataset was generated on September 26, 2018.
+
+All the necessary libraries are imported at the beginning for simplicity. 
+As we'll be coding in Google Colab, we'll need to upload the movies and ratings csv files first. Once the file is uploaded we read the file contents using Pandas.
+
+Data Preprocessing
+The 'rating' file contains ratings given by users to the movies. Seaborn is used to visualize the number of ratings provided by different users for different ratings. Figure shows the distribution of the ratings.csv file.
+![image](https://user-images.githubusercontent.com/90216358/169903960-90ac436c-8929-40a8-86a0-b924401510f4.png)
+Fig 1.
+The ‘movies’ file contains the movie's id, title, and genres. Based on the movieId, both the movies and ratings are combined. The movies are then grouped and the total rating count for each is calculated. This will aid in comprehending the dispersion of movie ratings. There are many movies with only one rating provided by the user. We are filtering the movies in such a way that movies with minimum 3 ratings are only considered. Similarly, we group the users in such a way that those rated greater than or equal to 50.
+
+KNN collaborative filtering algorithm, is a combination of both collaborative filtering algorithm and KNN algorithm.
+We want the data for K-Nearest Neighbors to be in an array, with each row representing a movie and each column representing a separate user. We'll pivot the data frame to a wide format with movies as rows and users as columns to reshape it. Since we'll be conducting linear algebra operations for calculating distances between vectors, we'll fill in the missing observations with 0s . Finally, we convert the dataframe's values into a scipy sparse matrix for faster calculations.
+![image](https://user-images.githubusercontent.com/90216358/169904155-b0cd2e27-11a4-4221-a0fc-11ea5e90bb42.png)
+
+The KNN algorithm is used to select the neighbors. In this project we use k value to be 10. Ten movies which are similar in distance with the input movie by the user are calculated and recommended to the user.
+
+COSINE COMPUTING
+Here we use cosine similarity, a method that computes the closeness between two movies by figuring the cosine of the point between the two vectors
+
+where Ai and Bi are parts of vectors A and B respectively.
+The subsequent closeness ranges from −1 meaning precisely inverse, to 1 meaning precisely the equivalent, with 0 demonstrating symmetry or decorrelation, while in the middle qualities show halfway similarity or uniqueness. For content coordinating, the characteristic vectors A and B are generally the term recurrence vectors of the reports. Cosine closeness can be viewed as a technique for normalizing document length during comparison.
+We calculate cosine similarity between the input movie and the other movies.
+KNN NEAREST NEIGHBOR SELECTION
+After the calculation of similarity as Similarity between movies, then the algorithm selects a number of movies that are nearest to the input movie. Here, the KNN model selects 10 movies that are similar to the input movie. Select just the 10  high similitudes as neighbors. As shown in figure below.
+
+![image](https://user-images.githubusercontent.com/90216358/169904265-c2e7b9c9-3066-4856-b0f2-3463fb783534.png)
+
+To test the model, we gave a sample input of  'Toy story' to see if our model gives 10 recommendations. The figure below shows the output of our implementation.
+
+![image](https://user-images.githubusercontent.com/90216358/169904362-16ffce39-bb12-4547-bcee-2c4f17d16b7d.png)
+
+Thus our KNN model successfully recommended 10 movies that were similar to the input movie.
+
+RMSE SCORE
+The root mean squared error, or RMSE, is the most used statistic for measuring the performance of a prediction model. The primary concept is to compare the model's predictions to actual observed data to see how bad/wrong they are. As a result, a high RMSE is "bad," whereas a low RMSE is "excellent."
+Surprise is a Python scikit for creating and evaluating recommender systems using explicit rating data. It provides tools for evaluating, analyzing, and comparing the performance of algorithms. The surprise package has many builtin methods. One Of that is RMSE. For the movie recommendation system that we have built, we are calculating the RMSE score to see the effectiveness of the model.
+We import, Reader, Dataset and cross_validate functions to perform this. We split the dataset into train and test data. Since we have used the KNN model, we need to import the KNNBasic and compute the RMSE. The RMSE score for KNN Model is shown in the figure below.
+
+![image](https://user-images.githubusercontent.com/90216358/169904459-d8cc837a-5104-4a43-baf3-b92894a461ec.png)
+
+KNNWithMeans is a basic collaborative filtering algorithm that considers each user's mean ratings. The RMSE score for KNN Model is shown in the figure below.
+
+![image](https://user-images.githubusercontent.com/90216358/169904556-5bcedaaa-fd0c-432a-a6cd-ee7af596a921.png)
+
+ 
  
 
 
