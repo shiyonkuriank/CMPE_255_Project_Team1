@@ -244,12 +244,15 @@ For KNN
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knn.png)
 
 For KNN Means
+
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/knnmeans.png)
 
 For SVD
+
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/svd.png)
 
 For SVD++
+
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/svdpp.png)
 
 The time shown in the above pictures is in seconds. we can see that SVD++ takes a considerably longer time to run than the others.
