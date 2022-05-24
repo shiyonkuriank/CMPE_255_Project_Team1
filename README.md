@@ -10,8 +10,7 @@
 
 [Sai Harsha](https://github.com/sreeharsha-glitch)
 ### Dataset ###
-The dataset we use for our project is found at  https://grouplens.org/datasets/movielens/100k/. It consists of about 100,000 ratings from more than 900 users. Each user has rated at least 20 movies. 
-We also use https://data.world/patriciag/tmdb-data dataset which contains extensive data about movies, tv shows and ratings from the users.
+The dataset we have used is https://files.grouplens.org/datasets/movielens/ml-latest-small.zip. It contains 100836 ratings and 3683 tag applications across 9742 movies. These data were created by 610 users between March 29, 1996 and September 24, 2018. This dataset was generated on September 26, 2018.
 ### Problem Description ###
 We all watch different movies and it is one of the best entertaining activities we can get engaged in. But sometimes it becomes difficult to decide on which movie to watch when provided with a lot of options to choose from. Generally, we would ask our friends or colleagues who have an idea of our interests to recommend movies. We also watch those movies which are popular among most users or have a good rating on the rating websites. We tend to watch those movies suggested by our favorite personalities. But, it is not always feasible to ask someone for suggestions. So it would be convenient if there is a recommendation system that can recommend movies that suit our interests.
 ### Potential Methods Used ###
@@ -20,14 +19,11 @@ There are three types of recommendation systems:
 Collaborative Filtering
 Content-Based Filtering
 Hybrid Recommendation Systems
- 
-Collaborative Filtering:
-There are several types of collaborative filtering. 
-User based collaborative filtering: This works by trying to search for lookalike customers and recommend movies based on what the person’s lookalike has watched.
-Item based collaborative filtering: This is similar to user-based but instead of finding the lookalike, we find item lookalike.
-Other algorithms: There are other approaches which use market-basket analysis, which work by looking for combination of items that occur together frequently in a transaction.
-Content-based Filtering:
-These filtering methods are based on the description of an item and a profile of the user’s preferred choices. In a content-based recommendation system, keywords are used to describe the items, besides, a user profile is built to state the type of item this user likes. In other words, the algorithms try to recommend products that are similar to the ones that a user has liked in the past.
-One of the major issues with the recommendation system that uses collaborative filtering is cold start and data sparsity. Here we use one of the Supervised Learning technique K-Nearest Neighbors approach in order to decrease the error rate and address the cold start and data sparsity issues.
-So, we are using a Hybrid approach which uses both collaborative and content-based filtering. Hybrid approaches can be implemented in several ways, by making content-based and collaborative-based predictions separately and then combining them, by adding content-based capabilities to a collaborative-based approach (and vice versa), or by unifying the approaches into one model. Netflix is a good example of hybrid recommender systems.
+### Steps to run the code
+1. Download the final_code folder
+2. Run the command pip install -r requirements.txt to install the required modules.
+3. Run the DataPreprocessing.ipynb file to download the dataset, clean the data and visualise it.
+4. To run the content-based model, run the CBF.ipynb file
+5. To run the different collaborative-models, run one of the ItemBasedCF_SVD.ipynb, ItemBasedCF_SVDp.ipynb, ItemBasedCF_KNN.ipynb, ItemBasedCF_KNNMeans.ipynb
+6. To run the hybrid model, run HybridRecommender.ipynb file. If you give an existing user, the model runs collabortaive filtering method. If you give a non-existing, you are asked to choose between option 1 which recommends based on Popularity and option 2 which recommends based on input movie.
 
