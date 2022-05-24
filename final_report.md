@@ -190,18 +190,7 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 
 ![image](https://user-images.githubusercontent.com/90216358/169928704-95ec9f7e-fc6a-4081-94c5-6cf827365b7c.png)
 
-###### Disadvantages of Item Based Collaborative filtering
-###### Cold Start
-The dot product of the associated embeddings represents the model's forecast for a given movie pair. As a result, if an item isn't observed during training, the system won't be able to construct an embedding for it or query the model with it. This problem is known as the cold-start problem.
-###### Hard to include side features for query/item
-Any features not related to the query or item ID are referred to as side features. Side features for movie recommendations could include country or age. The model's quality is improved by including available side features. 
-
-
-###### 2.2 User-Based Collaborative Filtering <br>
-Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
-An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
-
-###### 2.2.1 What is SVD in Collaborative Filtering
+###### 2.1.2 What is SVD in Collaborative Filtering
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%201.png) <br>
 The Singular Value Decomposition (SVD), a method from linear algebra that has been generally used as a dimensionality reduction technique in machine learning. SVD is a matrix factorization technique, which reduces the number of features of a dataset by reducing the space dimension from N-dimension to K-dimension (where K<N). In the context of the recommender system, the SVD is used as a collaborative filtering technique. It uses a matrix structure where each row represents a user, and each column represents an item. The elements of this matrix are the ratings that are given to items by users.
 
@@ -214,7 +203,7 @@ The factorization of this matrix is done by the singular value decomposition. It
 Let each item be represented by a vector xi and each user is represented by a vector yu. The expected rating by a user on an item   can be given as: Here,   is a form of factorization in singular value decomposition. The xi and yu can be obtained in a manner that the square error difference between their dot product and the expected rating in the user-item matrix is minimum. It can be expressed as: In order to let the model, generalize well and not overfit the training data, a regularization term is added as a penalty to the above formula. In order to reduce the error between the value predicted by the model and the actual value, the algorithm uses a bias term. Let for a user-item pair (u, i), μ is the average rating of all items, bi is the average rating of item i minus μ and bu is the average rating given by user u minus μ, the final equation after adding the regularization term and bias can be given as:
 The above equation is the main component of the algorithm which works for singular value decomposition-based recommendation system.
 
-###### 2.2.2 What is SVD++ in Collaborative Filtering 
+###### 2.1.3 What is SVD++ in Collaborative Filtering 
 The “user-item” rating matrix is the core data used by the recommender system. MF is a good method of predicting the missing ratings in collaborative filtering. In brief, MF involves factorizing a sparse matrix and finding two latent factor matrices: the first is the user matrix to indicate the user’s features (i.e., the degree of preference of a user for each factor) and the other is the item matrix, which indicates the item’s features (i.e., the weight of an item for each factor). The missing ratings are then predicted from the inner product of these two factor matrices. Let 𝑅𝑛×𝑚 be a rating matrix containing the ratings of 𝑛 users for 𝑚 items. Each matrix element 𝑟𝑢𝑖 refers to the rating of user 𝑢for item 𝑖. Given a lower dimension𝑑, MF factorizes the raw matrix𝑅𝑛×𝑚 into two latent factor matrices: one is the user-factor matrix𝑃𝑛×𝑑 and the other is the item-factor matrix 𝑄𝑑×𝑚. The factorization is done such that 𝑅 is approximated as the inner product of 𝑃and𝑄(i.e., ̃𝑅𝑛×𝑚 =𝑃𝑛×𝑑×𝑄𝑑×𝑚),and each observed rating 𝑟𝑢𝑖 is approximated by ̃𝑟𝑢𝑖 =𝑞𝑇 𝑖⋅𝑝𝑢 (also called the predicted value). However, 𝑞𝑇 𝑖 ⋅𝑝𝑢 only captures the relationship between the user 𝑢 and the item 𝑖. In the real world, the observed rating may be affected by the preference of the user or the characteristics of the item. In other words, the relationship between the user 𝑢 and the item 𝑖 can be replaced by the bias information. For instance, suppose one wants to predict the rating of the movie “Batman” by the user “Tom.” Now, the average rating of all movies on one website is 3.5, and Tom tends to give a rating that is 0.3 lower than the average because he is a critical man. The movie “Batman” is better than the average movie, so it tends to be rated 0.2 above the average. Therefore, considering the user and movie bias information, by performing the calculation 3.5 − 0.3 + 0.2 = 3.4, it is predicted that Tom will give the movie “Batman” a rating of 3.4. The user and item bias information can reflect the truth of the rating more objectively. SVD is a typical factorization technology (known as a baseline predictor in some works in the literature). Thus, the predicted rating is changed to
 
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%204.png)
@@ -230,6 +219,19 @@ To obtain the optimal 𝑃 and 𝑄, the regularized squared error can be minimi
 
 where 𝜆 is the regularization parameter to regularize the factors and prevent overfitting. 
 
+###### 2.1.4 Disadvantages of Item Based Collaborative filtering
+###### Cold Start
+The dot product of the associated embeddings represents the model's forecast for a given movie pair. As a result, if an item isn't observed during training, the system won't be able to construct an embedding for it or query the model with it. This problem is known as the cold-start problem.
+###### Hard to include side features for query/item
+Any features not related to the query or item ID are referred to as side features. Side features for movie recommendations could include country or age. The model's quality is improved by including available side features. 
+
+
+###### 2.2 User-Based Collaborative Filtering <br>
+Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
+An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
+
+We did not implement user-user based collaborative filtering as it takes a lot of time in computation with large number of users.
+
 ###### 3. Hybrid Recommendation System
 As discussed above, there are two approaches for a recommender system which are 
 1. Content-based recommendation system and 
@@ -242,6 +244,8 @@ Thus, a lot of recommendation systems take the hybrid aproach. Here, we implemen
 2. When there is an already existing user but is inactive i.e. he/she did not rate many movies (<50 ratings), then we use collaborative filtering using SVD algorithm to recommend a movie. <br >
 3. When the existing user is an active user who rated more than 50 movies, we use collaborative filtering using SVD++ to give recommendations. <br >
 Below figure shows the flow of the hybrid method.
+
+
 ###### 3.1 Choice of collaborative algorithm
 We implemented four algorithms for collaborative filtering which are KNN, KNN With Means, SVD and SVD++. To measure the methods, we used the evaluation metric RMSE. RMSE is calculated as seen below: <br >
 Out of the four, SVD++ has the least RMSE. So it is an ideal choice for collaborative filtering. But, the algorithm takes a lot of time to execute which delays the recommendation process. So we divided the users into two groups - active user and inactive users.<br >
