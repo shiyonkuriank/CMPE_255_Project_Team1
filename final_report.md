@@ -292,9 +292,15 @@ Below figures show the ouput for different users
 
 When the user is new and does not search for a movie
 
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/popular_recommendation.png)
+
 When the user is new and searches for a movie
 
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/search_movie.png)
+
 When the user is an existing user
+
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/existing_user.png)
 
 ###### 3.3 Analysis
 * The content-based method gives the same output if two different users search for the same movie.
