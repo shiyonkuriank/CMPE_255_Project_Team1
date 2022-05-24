@@ -212,6 +212,8 @@ Here are the prediction results using SVD.
 Let each item be represented by a vector xi and each user is represented by a vector yu. The expected rating by a user on an item   can be given as: Here,   is a form of factorization in singular value decomposition. The xi and yu can be obtained in a manner that the square error difference between their dot product and the expected rating in the user-item matrix is minimum. It can be expressed as: In order to let the model, generalize well and not overfit the training data, a regularization term is added as a penalty to the above formula. In order to reduce the error between the value predicted by the model and the actual value, the algorithm uses a bias term. Let for a user-item pair (u, i), μ is the average rating of all items, bi is the average rating of item i minus μ and bu is the average rating given by user u minus μ, the final equation after adding the regularization term and bias can be given as:
 The above equation is the main component of the algorithm which works for singular value decomposition-based recommendation system.
 
+Here are the prediction results using SVD. 
+
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%208.png)
 
 ###### 2.1.3 What is SVD++ in Collaborative Filtering 
