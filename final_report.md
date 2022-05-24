@@ -280,6 +280,9 @@ When we plot a graph to show the distribution of ratings, we see that a lot of u
 We can see that a lot of users fall in the 20-80 ratings. Since SVD++ was taking considerably more time which is perceivable than the other algorithms, we decided to use different algorithms for different set of users. We use SVD which has almost similar RMSE as SVD++ for inactive users so that the recommendation is given in less time.
 
 ###### Conclusion
+To conclude, A hybrid recommendation system is a special type of recommendation system which can be considered as the combination of the content and collaborative filtering method. Combining collaborative and content-based filtering together may help in overcoming the shortcoming we are facing at using them separately like cold start problem and also can be more effective in some cases. Hybrid recommender system approaches can be implemented in various ways like by using content and collaborative-based methods to generate predictions separately and then combining the prediction or we can just add the capabilities of collaborative-based methods to a content-based approach (and vice versa). There are several studies that compare the performance of the conventional approaches with the hybrid methods and say that by using the hybrid methods we can generate more accurate recommendations.<br>
+We can clearly see that a Hybrid Recommendation System performs better even on our dataset - ‘movies dataset’ wherein we are accurately able to recommend top 10 movies to the end user. The model's accuracy is significantly higher in this case and the predicted results are closer to the expected one’s.
+
 
 
  
