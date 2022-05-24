@@ -78,7 +78,7 @@ Let’s implement this on our problem statement-
 
 ###### Step- 1 : Data Preparation <br>
 Let's load this data into Python. I will load the dataset with Pandas onto Dataframes ratings, users, and movies. Before that, I'll also pass in column names for each CSV and read them using pandas (the column names are available in the Readme file).
-![image](images/Step-1.png)
+![image](images/Data_Preparation(CBF).JPG) 
 <br>
 
 ###### Step- 2 : Data Exploration <br>
@@ -189,22 +189,13 @@ KNNWithMeans is a basic collaborative filtering algorithm that considers each us
 
 ![image](https://user-images.githubusercontent.com/90216358/169928704-95ec9f7e-fc6a-4081-94c5-6cf827365b7c.png)
 
-###### Disadvantages of Item Based Collaborative filtering
-###### Cold Start
-The dot product of the associated embeddings represents the model's forecast for a given movie pair. As a result, if an item isn't observed during training, the system won't be able to construct an embedding for it or query the model with it. This problem is known as the cold-start problem.
-###### Hard to include side features for query/item
-Any features not related to the query or item ID are referred to as side features. Side features for movie recommendations could include country or age. The model's quality is improved by including available side features. 
-
-
 ###### 2.2 User-Based Collaborative Filtering <br>
-Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. 
+Collaborative Filtering is a technique which is widely used in recommendation systems and is rapidly advancing research area. The two most commonly used methods are memory-based and model-based.
 An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
 
 ###### 2.2.1 What is SVD in Collaborative Filtering
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%201.png) <br>
 The Singular Value Decomposition (SVD), a method from linear algebra that has been generally used as a dimensionality reduction technique in machine learning. SVD is a matrix factorization technique, which reduces the number of features of a dataset by reducing the space dimension from N-dimension to K-dimension (where K<N). In the context of the recommender system, the SVD is used as a collaborative filtering technique. It uses a matrix structure where each row represents a user, and each column represents an item. The elements of this matrix are the ratings that are given to items by users.
-
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%207.png) <br>
 
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%202.png)
 
