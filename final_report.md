@@ -194,7 +194,7 @@ Collaborative Filtering is a technique which is widely used in recommendation sy
 An example of collaborative filtering can be to predict the rating of a particular user based on user ratings for other movies and others’ ratings for all movies. This concept is widely used in recommending movies, news, applications, and so many other items. Let’s assume I have user U1, who likes movies m1, m2, m4. user U2 who likes movies m1, m3, m4, and user U3 who likes movie m1.
 
 ###### 2.2.1 What is SVD in Collaborative Filtering
-![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%201.png)
+![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%201.png) <br>
 The Singular Value Decomposition (SVD), a method from linear algebra that has been generally used as a dimensionality reduction technique in machine learning. SVD is a matrix factorization technique, which reduces the number of features of a dataset by reducing the space dimension from N-dimension to K-dimension (where K<N). In the context of the recommender system, the SVD is used as a collaborative filtering technique. It uses a matrix structure where each row represents a user, and each column represents an item. The elements of this matrix are the ratings that are given to items by users.
 
 ![alt text](https://github.com/shiyonkuriank/CMPE_255_Project_Team1/blob/main/images/Image%202.png)
