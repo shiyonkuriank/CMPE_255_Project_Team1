@@ -23,7 +23,7 @@ Hybrid Recommendation Systems
 1. Download the final_code folder
 2. Run the command pip install -r requirements.txt to install the required modules.
 3. Run the DataPreprocessing.ipynb file to download the dataset, clean the data and visualise it.
-4. To run the content-based model, run the CBF.ipynb file
+4. To run the content-based model, run the Content_Based_Filtering_Method.ipynb file
 5. To run the different collaborative-models, run one of the ItemBasedCF_SVD.ipynb, ItemBasedCF_SVDp.ipynb, ItemBasedCF_KNN.ipynb, ItemBasedCF_KNNMeans.ipynb
 6. To run the hybrid model, run HybridRecommender.ipynb file. If you give an existing user, the model runs collabortaive filtering method. If you give a non-existing, you are asked to choose between option 1 which recommends based on Popularity and option 2 which recommends based on input movie.
 
